@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gentle SOS — Emotional Support When You Need It | EVOLVE</title>
+  <meta name="description" content="Quick emotional support when you need it most. Breathing exercises, grounding techniques, and gentle guidance — like Sandra is holding your hand.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2A9D8F;
+      --secondary: #FFFFFF;
+      --accent: #C8956C;
+      --font: 'DM Sans', 'Nunito', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font); line-height: 1.6; color: #333; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    a { color: var(--primary); text-decoration: none; }
+    nav { background: var(--primary); padding: 1rem; position: sticky; top: 0; z-index: 1000; }
+    nav .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    nav .nav-brand { color: white; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.5px; }
+    nav .nav-links { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+    nav a { color: white; margin-right: 1.5rem; font-size: 0.9rem; transition: opacity 0.3s; }
+    nav a:hover { opacity: 0.8; }
+    footer { background: #333; color: white; padding: 2rem; text-align: center; }
+
+    /* Hero Reassurance */
+    .sos-hero {
+      background: linear-gradient(135deg, #1a7a6f 0%, #2A9D8F 40%, #3db8a9 100%);
+      color: white;
+      padding: 4rem 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .sos-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.08) 0%, transparent 70%);
+      animation: gentlePulse 8s ease-in-out infinite;
+    }
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+    .sos-hero .hero-content { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+    .sos-hero .hand-icon { font-size: 3rem; margin-bottom: 1rem; display: inline-block; animation: gentleWave 3s ease-in-out infinite; }
+    @keyframes gentleWave {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      75% { transform: rotate(-5deg); }
+    }
+    .sos-hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .sos-hero .subtitle { font-size: 1.2rem; opacity: 0.95; margin-bottom: 1rem; font-weight: 300; }
+    .sos-hero .reassurance { font-size: 1rem; opacity: 0.85; line-height: 1.8; max-width: 550px; margin: 0 auto; }
+    .sos-hero .reassurance em { font-style: italic; color: var(--accent); }
+
+    /* Section Styles */
+    .section { padding: 4rem 20px; }
+    .section-dark { background: #f7f9f8; }
+    .section-title { text-align: center; font-size: 1.8rem; font-weight: 700; color: #333; margin-bottom: 0.5rem; }
+    .section-subtitle { text-align: center; color: #666; font-size: 1rem; margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+    /* Emotion Button Grid */
+    .emotion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .emotion-btn {
+      background: white;
+      border: 2px solid #e8e8e8;
+      border-radius: 16px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .emotion-btn:hover, .emotion-btn.active {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(42, 157, 143, 0.15);
+    }
+    .emotion-btn.active {
+      background: linear-gradient(135deg, rgba(42,157,143,0.08), rgba(42,157,143,0.03));
+    }
+    .emotion-btn .emoji { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+    .emotion-btn .label { font-weight: 600; font-size: 0.9rem; color: #444; }
+    .emotion-btn .hint { font-size: 0.75rem; color: #999; margin-top: 0.25rem; }
+
+    /* Emotion Response Panel */
+    .emotion-response {
+      max-width: 700px;
+      margin: 2.5rem auto 0;
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+      display: none;
+      animation: fadeSlideUp 0.5s ease;
+    }
+    .emotion-response.visible { display: block; }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .emotion-response .response-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+    .emotion-response .response-emoji { font-size: 2.5rem; }
+    .emotion-response .response-title { font-size: 1.3rem; font-weight: 700; color: var(--primary); }
+    .emotion-response .response-sandra { font-style: italic; color: #666; font-size: 0.95rem; margin-bottom: 1.5rem; padding: 1rem; background: rgba(200,149,108,0.08); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; }
+    .emotion-response .response-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .response-action-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: var(--font);
+    }
+    .response-action-btn:hover { background: #238b7e; transform: scale(1.03); }
+    .response-action-btn.outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    .response-action-btn.outline:hover { background: var(--primary); color: white; }
+
+    /* Breathing Visual */
+    .breathing-section { text-align: center; }
+    .breathing-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    .breathing-circle-wrapper {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .breathing-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--primary), #1a7a6f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.1s linear;
+      box-shadow: 0 0 40px rgba(42, 157, 143, 0.3);
+      position: relative;
+      z-index: 2;
+    }
+    .breathing-circle.inhale {
+      animation: breatheIn 4s ease-in-out forwards;
+    }
+    .breathing-circle.hold-in, .breathing-circle.hold-out {
+      animation: none;
+    }
+    .breathing-circle.exhale {
+      animation: breatheOut 4s ease-in-out forwards;
+    }
+    @keyframes breatheIn {
+      from { width: 120px; height: 120px; box-shadow: 0 0 40px rgba(42,157,143,0.3); }
+      to { width: 220px; height: 220px; box-shadow: 0 0 80px rgba(42,157,143,0.5); }
+    }
+    @keyframes breatheOut {
+      from { width: 220px; height: 220px; box-shadow: 0 0 80px rgba(42,157,143,0.5); }
+      to { width: 120px; height: 120px; box-shadow: 0 0 40px rgba(42,157,143,0.3); }
+    }
+    .breathing-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid rgba(42, 157, 143, 0.15);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .breathing-ring:nth-child(2) { width: 180px; height: 180px; }
+    .breathing-ring:nth-child(3) { width: 220px; height: 220px; }
+    .breathing-ring:nth-child(4) { width: 250px; height: 250px; }
+    .breathing-controls { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .breathing-controls select, .breathing-controls button {
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      border: 2px solid var(--primary);
+      font-family: var(--font);
+      font-size: 0.9rem;
+      cursor: pointer;
+      background: white;
+      color: var(--primary);
+      transition: all 0.3s;
+    }
+    .breathing-controls button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      min-width: 120px;
+    }
+    .breathing-controls button:hover { background: #238b7e; }
+    .breathing-timer { font-size: 0.9rem; color: #888; margin-top: 0.5rem; }
+    .cycle-counter { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+
+    /* Sing With Me */
+    .sing-section { text-align: center; }
+    .sing-player {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+    }
+    .sing-visual {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #2A9D8F, #1a7a6f);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .sing-visual .music-notes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    .music-note {
+      position: absolute;
+      font-size: 1.5rem;
+      opacity: 0;
+      animation: floatNote 4s ease-in-out infinite;
+    }
+    .music-note:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .music-note:nth-child(2) { left: 30%; animation-delay: 0.8s; }
+    .music-note:nth-child(3) { left: 50%; animation-delay: 1.6s; }
+    .music-note:nth-child(4) { left: 70%; animation-delay: 2.4s; }
+    .music-note:nth-child(5) { left: 85%; animation-delay: 3.2s; }
+    @keyframes floatNote {
+      0% { bottom: 20%; opacity: 0; transform: translateX(0) rotate(0deg); }
+      30% { opacity: 0.8; }
+      100% { bottom: 90%; opacity: 0; transform: translateX(20px) rotate(20deg); }
+    }
+    .sing-visual .sing-text { color: white; font-size: 1.3rem; font-weight: 600; z-index: 2; text-align: center; padding: 1rem; }
+    .sing-playlist { list-style: none; text-align: left; }
+    .sing-playlist li {
+      padding: 1rem;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background 0.3s;
+    }
+    .sing-playlist li:hover { background: rgba(42,157,143,0.05); }
+    .sing-playlist li:last-child { border-bottom: none; }
+    .sing-playlist .play-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+    .sing-playlist .song-info .song-title { font-weight: 600; font-size: 0.95rem; }
+    .sing-playlist .song-info .song-desc { font-size: 0.8rem; color: #888; }
+    .sing-note {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: #999;
+      font-style: italic;
+    }
+
+    /* Vagus Nerve */
+    .vagus-section { text-align: center; }
+    .vagus-exercises {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .vagus-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      text-align: left;
+      transition: transform 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .vagus-card:hover { transform: translateY(-4px); }
+    .vagus-card .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .vagus-card h3 { font-size: 1.1rem; font-weight: 700; color: #333; margin-bottom: 0.5rem; }
+    .vagus-card .duration { font-size: 0.8rem; color: var(--primary); font-weight: 600; margin-bottom: 0.75rem; }
+    .vagus-card p { font-size: 0.9rem; color: #666; line-height: 1.7; }
+    .vagus-card .steps { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #eee; }
+    .vagus-card .steps.visible { display: block; animation: fadeSlideUp 0.4s ease; }
+    .vagus-card .steps ol { padding-left: 1.2rem; }
+    .vagus-card .steps li { font-size: 0.85rem; color: #555; margin-bottom: 0.5rem; line-height: 1.6; }
+    .vagus-card .expand-hint { font-size: 0.75rem; color: var(--accent); margin-top: 0.75rem; font-weight: 600; }
+
+    /* Pendant Ritual */
+    .pendant-section {
+      background: linear-gradient(135deg, rgba(200,149,108,0.08), rgba(42,157,143,0.05));
+      text-align: center;
+    }
+    .pendant-ritual {
+      max-width: 650px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+      position: relative;
+    }
+    .pendant-visual {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1.5rem;
+      position: relative;
+    }
+    .pendant-heart {
+      font-size: 4rem;
+      animation: heartGlow 3s ease-in-out infinite;
+      display: inline-block;
+    }
+    @keyframes heartGlow {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(200,149,108,0.3)); }
+      50% { transform: scale(1.08); filter: drop-shadow(0 0 25px rgba(200,149,108,0.6)); }
+    }
+    .pendant-ritual h3 { font-size: 1.3rem; font-weight: 700; color: var(--accent); margin-bottom: 1rem; }
+    .ritual-steps {
+      text-align: left;
+      list-style: none;
+      counter-reset: ritual;
+    }
+    .ritual-steps li {
+      counter-increment: ritual;
+      padding: 1rem 1rem 1rem 3.5rem;
+      position: relative;
+      border-bottom: 1px solid #f5f0eb;
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+    }
+    .ritual-steps li:last-child { border-bottom: none; }
+    .ritual-steps li::before {
+      content: counter(ritual);
+      position: absolute;
+      left: 0.5rem;
+      top: 1rem;
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .ritual-steps li strong { color: var(--primary); }
+    .pendant-cta {
+      margin-top: 1.5rem;
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .pendant-cta:hover { background: #b8845c; color: white; transform: scale(1.03); }
+
+    /* Crisis Resources */
+    .crisis-section {
+      background: #2c2c2c;
+      color: white;
+      padding: 3rem 20px;
+      text-align: center;
+    }
+    .crisis-section h2 { font-size: 1.4rem; margin-bottom: 0.5rem; color: white; }
+    .crisis-section .crisis-note { font-size: 0.9rem; color: #bbb; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .crisis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .crisis-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: background 0.3s;
+    }
+    .crisis-card:hover { background: rgba(255,255,255,0.12); }
+    .crisis-card .crisis-name { font-weight: 700; font-size: 1rem; margin-bottom: 0.25rem; color: var(--accent); }
+    .crisis-card .crisis-number { font-size: 1.3rem; font-weight: 700; color: white; margin-bottom: 0.25rem; }
+    .crisis-card .crisis-number a { color: white; }
+    .crisis-card .crisis-desc { font-size: 0.8rem; color: #aaa; }
+    .crisis-love {
+      margin-top: 2rem;
+      font-style: italic;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    /* Cross-links */
+    .cross-links {
+      padding: 3rem 20px;
+      text-align: center;
+      background: #f7f9f8;
+    }
+    .cross-links h3 { font-size: 1.2rem; color: #555; margin-bottom: 1.5rem; }
+    .cross-links-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cross-link-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s;
+      min-width: 200px;
+    }
+    .cross-link-card:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(0,0,0,0.1); }
+    .cross-link-card .cl-emoji { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .cross-link-card .cl-title { font-weight: 700; font-size: 0.95rem; color: #333; }
+    .cross-link-card .cl-desc { font-size: 0.8rem; color: #888; margin-top: 0.25rem; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav .container { flex-direction: column; gap: 0.75rem; }
+      nav .nav-links { justify-content: center; }
+      nav a { margin-right: 0.75rem; font-size: 0.8rem; }
+      .sos-hero { padding: 3rem 20px; }
+      .sos-hero h1 { font-size: 1.8rem; }
+      .sos-hero .subtitle { font-size: 1rem; }
+      .emotion-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.75rem; }
+      .emotion-btn { padding: 1.2rem 0.75rem; }
+      .emotion-response { padding: 1.5rem; }
+      .section { padding: 3rem 20px; }
+      .section-title { font-size: 1.5rem; }
+      .breathing-circle-wrapper { width: 200px; height: 200px; }
+      .vagus-exercises { grid-template-columns: 1fr; }
+      .pendant-ritual { padding: 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .emotion-grid { grid-template-columns: repeat(2, 1fr); }
+      nav a { margin-right: 0.5rem; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-brand">evolve-by-rocks2rings</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="weekly-wisdom.html">Weekly Wisdom</a>
+      <a href="confessions.html">Soul Whispers</a>
+      <a href="gentle-sos.html">Gentle SOS</a>
+      <a href="astrology.html">Astrology</a>
+      <a href="crystals.html">Crystal Lab</a>
+      <a href="reels.html">Reels</a>
+      <a href="shop.html">Shop</a>
+    </div>
+  </div>
+</nav>
+
+<!-- SOS Hero Reassurance -->
+<section class="sos-hero">
+  <div class="hero-content">
+    <div class="hand-icon">🤲</div>
+    <h1>Hey. I'm right here.</h1>
+    <p class="subtitle">You found this page because something feels hard right now. That's okay.</p>
+    <p class="reassurance">
+      Take a breath. You don't have to figure anything out yet.<br>
+      Just tell me what you're feeling, and I'll walk you through it — <em>gently</em>.<br>
+      Think of this as Sandra holding your hand. 💛
+    </p>
+  </div>
+</section>
+
+<!-- Emotion Button Grid -->
+<section class="section section-dark" id="emotions">
+  <div class="container">
+    <h2 class="section-title">What are you feeling right now?</h2>
+    <p class="section-subtitle">Tap the one that's closest. There are no wrong answers here.</p>
+
+    <div class="emotion-grid">
+      <div class="emotion-btn" data-emotion="panic" onclick="showEmotion(this)">
+        <span class="emoji">😰</span>
+        <span class="label">Panic</span>
+        <span class="hint">Heart racing</span>
+      </div>
+      <div class="emotion-btn" data-emotion="spiral" onclick="showEmotion(this)">
+        <span class="emoji">🌀</span>
+        <span class="label">Spiraling</span>
+        <span class="hint">Can't stop thinking</span>
+      </div>
+      <div class="emotion-btn" data-emotion="sad" onclick="showEmotion(this)">
+        <span class="emoji">😢</span>
+        <span class="label">Deep Sad</span>
+        <span class="hint">Heavy & low</span>
+      </div>
+      <div class="emotion-btn" data-emotion="rage" onclick="showEmotion(this)">
+        <span class="emoji">🔥</span>
+        <span class="label">Road Rage</span>
+        <span class="hint">Anger boiling</span>
+      </div>
+      <div class="emotion-btn" data-emotion="overthinking" onclick="showEmotion(this)">
+        <span class="emoji">🌙</span>
+        <span class="label">3am Brain</span>
+        <span class="hint">Overthinking at night</span>
+      </div>
+      <div class="emotion-btn" data-emotion="numb" onclick="showEmotion(this)">
+        <span class="emoji">🫥</span>
+        <span class="label">Numb</span>
+        <span class="hint">Feeling nothing</span>
+      </div>
+      <div class="emotion-btn" data-emotion="lonely" onclick="showEmotion(this)">
+        <span class="emoji">🥀</span>
+        <span class="label">Lonely</span>
+        <span class="hint">Nobody gets it</span>
+      </div>
+      <div class="emotion-btn" data-emotion="overwhelm" onclick="showEmotion(this)">
+        <span class="emoji">🫠</span>
+        <span class="label">Overwhelmed</span>
+        <span class="hint">Too much at once</span>
+      </div>
+    </div>
+
+    <!-- Response Panels -->
+    <div class="emotion-response" id="response-panic">
+      <div class="response-header">
+        <span class="response-emoji">😰</span>
+        <span class="response-title">Your body is trying to protect you.</span>
+      </div>
+      <div class="response-sandra">"I know this feeling — the chest tightening, the world shrinking. But you're safe right now. Your body just needs a signal that the danger has passed. Let's send it that signal together." — Sandra</div>
+      <div class="response-actions">
+        <button class="response-action-btn" onclick="scrollToSection('breathing')">🫁 Start Breathing Exercise</button>
+        <button class="response-action-btn outline" onclick="scrollToSection('vagus')">🧊 Try Cold Water Reset</button>
+        <button class="response-action-btn outline" onclick="scrollToSection('pendant')">💎 Pendant Grounding</button>
+      </div>
+    </div>
+
+    <div class="emotion-response" id="response-spiral">
+      <div class="response-header">
+        <span class="response-emoji">🌀</span>
+        <span class="response-title">Let's slow the spin.</span>
+      </div>
+      <div class="response-sandra">"When your mind spirals, it's trying to solve something unsolvable. You don't need the answer right now. You just need to come back to this moment — this breath, this body, this second." — Sandra</div>
+      <div class="response-actions">
+        <button class="response-action-btn" onclick="scrollToSection('breathing')">🫁 Box Breathing</button>
+        <button class="response-action-btn outline" onclick="scrollToSection('vagus')">✋ 5-4-3-2-1 Grounding</button>
+        <button class="response-action-btn outline" onclick="scrollToSection('sing')">🎵 Sing With Me</button>
+      </div>
+    </div>
+
+    <div class="emotion-response" id="response-sad">
+      <div class="response-header">
+        <span class="response-emoji">😢</span>
+        <span class="response-title">It's okay to feel this.</span>
+      </div>
+      <div class="response-sandra">"Sadness isn't weakness — it's your heart telling you something mattered. You don't have to push it away. Let it move through you. I'm sitting right here with you." — Sandra</div>
+      <div class="response-actions">
+        <button class="response-action-btn" onclick="scrollToSection('sing')">🎵 Soothing Sing-Along</button>
+        <button class="response-action-btn outline" onclick="scrollToSection('pendant')">💎 Heart Holding Ritual</button>
+        <button class="response-action-btn outline" onclick="window.location.href='confessions.html'">💌 Write a Soul Whisper</button>
+      </div>
+    </div>
+
+    <div class="emotion-response" id="response-rage">
+      <div class="response-header">
+        <span class="response-emoji">🔥</span>
+        <span class="response-title">That fire is valid.</span>
+      </div>
+      <div class="response-sandra">"Anger is just hurt wearing armor. You don't need to act on it — but you don't need to swallow it either. Let's move it through your body safely." — Sandra</div>
+      <div class="response-actions">
+        <button class="response-action-btn" onclick="scrollToSection('breathing')">🫁 Extended Exhale Breathing</button>
+        <button class="response-action-btn outline" onclick="scrollToSection('vagus')">🐝 Humming Reset</button>
+        <button class="response-action-btn outline" onclick="scrollToSection('vagus')">🧊 Cold Water Shock</button>
+      </div>
+    </div>
+
+    <div class="emotion-response" id="response-overthinking">
+      <div class="response-header">
+        <span class="response-emoji">🌙</span>
+        <span class="response-title">Your brain is working overtime.</span>
+      </div>
+      <div class="response-sandra">"3am thoughts feel so real, don't they? But they're amplified by exhaustion and darkness. Nothing needs to be decided tonight. Let's quiet the noise." — Sandra</div>
+      <div class="response-actions">
+        <button class="response-action-btn" onclick="scrollToSection('breathing')">🫁 4-7-8 Sleep Breathing</button>
+        <button class="response-action-btn outline" onclick="scrollToSection('sing')">🎵 Lullaby Mode</button>
+        <button class="response-action-btn outline" onclick="scrollToSection('pendant')">💎 Pendant Ritual</button>
+      </div>
+    </div>
+
+    <div class="emotion-response" id="response-numb">
+      <div class="response-header">
+        <span class="response-emoji">🫥</span>
+        <span class="response-title">Numbness is a feeling too.</span>
+      </div>
+      <div class="response-sandra">"When you feel nothing, it's often because you've felt too much. Your system hit pause to protect you. Let's gently wake your senses back up — no rush." — Sandra</div>
+      <div class="response-actions">
+        <button class="response-action-btn" onclick="scrollToSection('vagus')">🧊 Cold Water Activation</button>
+        <button class="response-action-btn outline" onclick="scrollToSection('vagus')">✋ Sensory Grounding</button>
+        <button class="response-action-btn outline" onclick="scrollToSection('sing')">🎵 Feel Through Music</button>
+      </div>
+    </div>
+
+    <div class="emotion-response" id="response-lonely">
+      <div class="response-header">
+        <span class="response-emoji">🥀</span>
+        <span class="response-title">You are not alone.</span>
+      </div>
+      <div class="response-sandra">"I know it feels like no one understands. But right now, someone else is reading this same page, feeling the same ache. You're connected to them — and to me. Always." — Sandra</div>
+      <div class="response-actions">
+        <button class="response-action-btn" onclick="window.location.href='confessions.html'">💌 Read Soul Whispers</button>
+        <button class="response-action-btn outline" onclick="scrollToSection('pendant')">💎 You Are Loved Ritual</button>
+        <button class="response-action-btn outline" onclick="scrollToSection('sing')">🎵 Sing With Sandra</button>
+      </div>
+    </div>
+
+    <div class="emotion-response" id="response-overwhelm">
+      <div class="response-header">
+        <span class="response-emoji">🫠</span>
+        <span class="response-title">One thing at a time.</span>
+      </div>
+      <div class="response-sandra">"You're carrying too many tabs open in your mind. Let's close them all — just for a few minutes. The world can wait. Right now, there's only this moment." — Sandra</div>
+      <div class="response-actions">
+        <button class="response-action-btn" onclick="scrollToSection('breathing')">🫁 Simple Breathing</button>
+        <button class="response-action-btn outline" onclick="scrollToSection('vagus')">✋ 5-4-3-2-1 Grounding</button>
+        <button class="response-action-btn outline" onclick="window.location.href='weekly-wisdom.html'">🌿 Read This Week's Wisdom</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Breathing Visual Experience -->
+<section class="section breathing-section" id="breathing">
+  <div class="container">
+    <h2 class="section-title">Breathe With Me</h2>
+    <p class="section-subtitle">Choose a pattern, press start, and follow the circle. Your only job is to breathe.</p>
+
+    <div class="breathing-container">
+      <div class="breathing-controls">
+        <select id="breathPattern">
+          <option value="box">Box Breathing (4-4-4-4)</option>
+          <option value="calm">Calming Breath (4-7-8)</option>
+          <option value="simple">Simple Breath (4-4)</option>
+          <option value="extended">Extended Exhale (4-2-6)</option>
+        </select>
+        <button id="breathBtn" onclick="toggleBreathing()">▶ Start</button>
+      </div>
+
+      <div class="breathing-circle-wrapper">
+        <div class="breathing-ring"></div>
+        <div class="breathing-ring"></div>
+        <div class="breathing-ring"></div>
+        <div class="breathing-circle" id="breathCircle">
+          <span id="breathText">Ready</span>
+        </div>
+      </div>
+
+      <div class="cycle-counter" id="cycleCounter"></div>
+      <div class="breathing-timer" id="breathTimer">Choose a pattern and press start</div>
+    </div>
+  </div>
+</section>
+
+<!-- Sing With Me Player -->
+<section class="section section-dark sing-section" id="sing">
+  <div class="container">
+    <h2 class="section-title">🎵 Sing With Me</h2>
+    <p class="section-subtitle">Singing activates your vagus nerve and releases tension. Sandra picked these just for you.</p>
+
+    <div class="sing-player">
+      <div class="sing-visual">
+        <div class="music-notes">
+          <span class="music-note">🎵</span>
+          <span class="music-note">🎶</span>
+          <span class="music-note">✨</span>
+          <span class="music-note">🎵</span>
+          <span class="music-note">💫</span>
+        </div>
+        <div class="sing-text">
+          Close your eyes.<br>
+          Let the melody carry you.<br>
+          <small style="opacity:0.7">Humming counts too. 💛</small>
+        </div>
+      </div>
+
+      <ul class="sing-playlist">
+        <li onclick="playSong(this)">
+          <div class="play-icon">▶</div>
+          <div class="song-info">
+            <div class="song-title">🌊 "Weightless" — Marconi Union</div>
+            <div class="song-desc">Scientifically proven to reduce anxiety by 65%. Just listen.</div>
+          </div>
+        </li>
+        <li onclick="playSong(this)">
+          <div class="play-icon">▶</div>
+          <div class="song-info">
+            <div class="song-title">🌙 "Breathe Me" — Sia</div>
+            <div class="song-desc">For when you need permission to fall apart. Sing it out.</div>
+          </div>
+        </li>
+        <li onclick="playSong(this)">
+          <div class="play-icon">▶</div>
+          <div class="song-info">
+            <div class="song-title">☀️ "Three Little Birds" — Bob Marley</div>
+            <div class="song-desc">Every little thing is gonna be alright. Hum along.</div>
+          </div>
+        </li>
+        <li onclick="playSong(this)">
+          <div class="play-icon">▶</div>
+          <div class="song-info">
+            <div class="song-title">💜 "Somewhere Over the Rainbow" — IZ</div>
+            <div class="song-desc">A lullaby for your inner child. Let it hold you.</div>
+          </div>
+        </li>
+        <li onclick="playSong(this)">
+          <div class="play-icon">▶</div>
+          <div class="song-info">
+            <div class="song-title">🕊️ "You Are My Sunshine"</div>
+            <div class="song-desc">Sandra's pick. Sing it to yourself like you're your own mother.</div>
+          </div>
+        </li>
+      </ul>
+
+      <p class="sing-note">💡 Tip: Humming, singing, and even gargling activate your vagus nerve — your body's built-in calm-down system.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Vagus Nerve Guided Exercise -->
+<section class="section vagus-section" id="vagus">
+  <div class="container">
+    <h2 class="section-title">Vagus Nerve Reset</h2>
+    <p class="section-subtitle">Your vagus nerve is the highway between your brain and body. These exercises tell your nervous system: "You're safe now."</p>
+
+    <div class="vagus-exercises">
+      <div class="vagus-card" onclick="toggleSteps(this)">
+        <div class="card-icon">🧊</div>
+        <h3>Cold Water Reset</h3>
+        <div class="duration">⏱ 30 seconds</div>
+        <p>Splash cold water on your face or hold ice cubes. The cold activates your dive reflex and instantly calms your heart rate.</p>
+        <div class="expand-hint">Tap for step-by-step →</div>
+        <div class="steps">
+          <ol>
+            <li>Get a bowl of cold water or grab ice cubes</li>
+            <li>Take a deep breath in</li>
+            <li>Splash cold water on your face, especially forehead and cheeks</li>
+            <li>Hold for 15-30 seconds</li>
+            <li>Notice your heart rate slowing down</li>
+            <li>Repeat if needed — your body is resetting</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="vagus-card" onclick="toggleSteps(this)">
+        <div class="card-icon">✋</div>
+        <h3>5-4-3-2-1 Grounding</h3>
+        <div class="duration">⏱ 2 minutes</div>
+        <p>Name 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste. Brings you back to the present moment.</p>
+        <div class="expand-hint">Tap for step-by-step →</div>
+        <div class="steps">
+          <ol>
+            <li><strong>5 things you SEE:</strong> Look around slowly. Name them out loud if you can.</li>
+            <li><strong>4 things you can TOUCH:</strong> Feel the texture of your clothes, the chair, your skin.</li>
+            <li><strong>3 things you HEAR:</strong> Close your eyes. What sounds are there?</li>
+            <li><strong>2 things you SMELL:</strong> Breathe deeply. Even "nothing" is an answer.</li>
+            <li><strong>1 thing you TASTE:</strong> Run your tongue over your lips. Sip water.</li>
+            <li>Take one more deep breath. You're here. You're present. You're okay.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="vagus-card" onclick="toggleSteps(this)">
+        <div class="card-icon">🐝</div>
+        <h3>Bee Breath (Humming)</h3>
+        <div class="duration">⏱ 1 minute</div>
+        <p>The vibration of humming directly stimulates your vagus nerve. It's like giving your nervous system a massage from the inside.</p>
+        <div class="expand-hint">Tap for step-by-step →</div>
+        <div class="steps">
+          <ol>
+            <li>Sit comfortably. Close your eyes.</li>
+            <li>Place your fingers gently over your ears (optional)</li>
+            <li>Take a deep breath in through your nose</li>
+            <li>As you exhale, make a long "hmmmmm" sound</li>
+            <li>Feel the vibration in your chest, throat, and face</li>
+            <li>Repeat 5-6 times. Notice the calm spreading through you.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="vagus-card" onclick="toggleSteps(this)">
+        <div class="card-icon">👁️</div>
+        <h3>Eye Movement Reset</h3>
+        <div class="duration">⏱ 30 seconds</div>
+        <p>Slow lateral eye movements activate the parasympathetic nervous system. It's the same principle behind EMDR therapy.</p>
+        <div class="expand-hint">Tap for step-by-step →</div>
+        <div class="steps">
+          <ol>
+            <li>Keep your head still, facing forward</li>
+            <li>Slowly look as far right as you can</li>
+            <li>Hold for 15-30 seconds until you sigh or yawn</li>
+            <li>Return to center</li>
+            <li>Now look as far left as you can</li>
+            <li>Hold until you feel a release (sigh, yawn, or swallow)</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="vagus-card" onclick="toggleSteps(this)">
+        <div class="card-icon">🤲</div>
+        <h3>Self-Holding Hug</h3>
+        <div class="duration">⏱ 1 minute</div>
+        <p>Cross your arms and hold your own shoulders. Gentle pressure releases oxytocin and tells your body it's being cared for.</p>
+        <div class="expand-hint">Tap for step-by-step →</div>
+        <div class="steps">
+          <ol>
+            <li>Cross your arms over your chest</li>
+            <li>Place each hand on the opposite shoulder</li>
+            <li>Squeeze gently — like you're hugging yourself</li>
+            <li>Slowly alternate tapping left, right, left, right</li>
+            <li>Breathe slowly as you tap</li>
+            <li>Whisper: "I'm here. I've got you. You're safe."</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="vagus-card" onclick="toggleSteps(this)">
+        <div class="card-icon">🫧</div>
+        <h3>Long Exhale Sighing</h3>
+        <div class="duration">⏱ 1 minute</div>
+        <p>A physiological sigh — two quick inhales through the nose, one long exhale through the mouth — is the fastest way to calm down.</p>
+        <div class="expand-hint">Tap for step-by-step →</div>
+        <div class="steps">
+          <ol>
+            <li>Inhale quickly through your nose</li>
+            <li>Immediately inhale again (a second sniff) to fully expand your lungs</li>
+            <li>Now exhale slowly through your mouth — as long as possible</li>
+            <li>Let the exhale be audible. Sigh it out.</li>
+            <li>Repeat 3-5 times</li>
+            <li>This is what your body naturally does when it's trying to calm itself</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pendant Heart Ritual -->
+<section class="section pendant-section" id="pendant">
+  <div class="container">
+    <h2 class="section-title">EVOLVE Pendant Ritual</h2>
+    <p class="section-subtitle">If you have your EVOLVE pendant (or any meaningful piece of jewelry), this ritual turns it into an anchor of calm.</p>
+
+    <div class="pendant-ritual">
+      <div class="pendant-visual">
+        <span class="pendant-heart">💎</span>
+      </div>
+      <h3>The Heart-Holding Ritual</h3>
+
+      <ol class="ritual-steps">
+        <li>Hold your pendant (or place your hand over your heart) and <strong>close your eyes</strong>.</li>
+        <li>Take <strong>three slow breaths</strong>. Feel the weight of the pendant in your hand — its coolness, its edges, its presence.</li>
+        <li>Whisper or think: <strong>"I am here. I am safe. I am held."</strong> Repeat it three times.</li>
+        <li>Imagine <strong>warm golden light</strong> flowing from the pendant into your palm, up your arm, and filling your chest.</li>
+        <li>With each exhale, let the light <strong>push out the heaviness</strong>. It doesn't have to go far — just out of your body.</li>
+        <li>When you're ready, press the pendant to your heart and say: <strong>"I choose me. I choose gentle. I choose to evolve."</strong></li>
+        <li>Open your eyes slowly. <strong>You just held your own hand.</strong> Sandra is proud of you. 💛</li>
+      </ol>
+
+      <a href="shop.html" class="pendant-cta">✨ Find Your EVOLVE Pendant</a>
+    </div>
+  </div>
+</section>
+
+<!-- Crisis Resources Footer -->
+<section class="crisis-section" id="crisis">
+  <div class="container">
+    <h2>🚨 If You're in Crisis</h2>
+    <p class="crisis-note">These tools are for everyday emotional support. If you're in danger or having thoughts of self-harm, please reach out to these free, confidential resources. You matter.</p>
+
+    <div class="crisis-grid">
+      <div class="crisis-card">
+        <div class="crisis-name">988 Suicide & Crisis Lifeline</div>
+        <div class="crisis-number"><a href="tel:988">Call or Text: 988</a></div>
+        <div class="crisis-desc">24/7 free, confidential support</div>
+      </div>
+      <div class="crisis-card">
+        <div class="crisis-name">Crisis Text Line</div>
+        <div class="crisis-number"><a href="sms:741741&body=HELLO">Text HOME to 741741</a></div>
+        <div class="crisis-desc">Free 24/7 text-based support</div>
+      </div>
+      <div class="crisis-card">
+        <div class="crisis-name">SAMHSA Helpline</div>
+        <div class="crisis-number"><a href="tel:18006624357">1-800-662-4357</a></div>
+        <div class="crisis-desc">Mental health & substance abuse referrals</div>
+      </div>
+      <div class="crisis-card">
+        <div class="crisis-name">International Association for Suicide Prevention</div>
+        <div class="crisis-number"><a href="https://www.iasp.info/resources/Crisis_Centres/" target="_blank" rel="noopener">Find Your Country →</a></div>
+        <div class="crisis-desc">Crisis centers worldwide</div>
+      </div>
+    </div>
+
+    <p class="crisis-love">You are not broken. You are not too much. You are not alone. 💛<br>— Sandra</p>
+  </div>
+</section>
+
+<!-- Cross Links -->
+<section class="cross-links">
+  <h3>When you're ready, there's more gentle support here:</h3>
+  <div class="cross-links-grid">
+    <a href="confessions.html" class="cross-link-card">
+      <div class="cl-emoji">💌</div>
+      <div class="cl-title">Soul Whispers</div>
+      <div class="cl-desc">Share anonymously. You're not alone.</div>
+    </a>
+    <a href="weekly-wisdom.html" class="cross-link-card">
+      <div class="cl-emoji">🌿</div>
+      <div class="cl-title">Weekly Wisdom</div>
+      <div class="cl-desc">A gentle message for your week.</div>
+    </a>
+    <a href="index.html" class="cross-link-card">
+      <div class="cl-emoji">🏠</div>
+      <div class="cl-title">Home</div>
+      <div class="cl-desc">Back to your safe space.</div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 EVOLVE by Rocks2Rings — Sandra. You are not alone.</p>
+  </div>
+</footer>
+
+<script>
+  // Emotion Button Grid
+  function showEmotion(btn) {
+    // Remove active from all buttons
+    document.querySelectorAll('.emotion-btn').forEach(b => b.classList.remove('active'));
+    // Hide all responses
+    document.querySelectorAll('.emotion-response').forEach(r => r.classList.remove('visible'));
+    
+    // Activate clicked button
+    btn.classList.add('active');
+    const emotion = btn.getAttribute('data-emotion');
+    const response = document.getElementById('response-' + emotion);
+    if (response) {
+      response.classList.add('visible');
+      // Smooth scroll to response
+      setTimeout(() => {
+        response.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+    }
+  }
+
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // Breathing Exercise
+  let breathingActive = false;
+  let breathingInterval = null;
+  let breathCycles = 0;
+
+  const patterns = {
+    box: { name: 'Box Breathing', steps: [
+      { text: 'Breathe In', duration: 4000, class: 'inhale' },
+      { text: 'Hold', duration: 4000, class: 'hold-in' },
+      { text: 'Breathe Out', duration: 4000, class: 'exhale' },
+      { text: 'Hold', duration: 4000, class: 'hold-out' }
+    ]},
+    calm: { name: 'Calming Breath', steps: [
+      { text: 'Breathe In', duration: 4000, class: 'inhale' },
+      { text: 'Hold', duration: 7000, class: 'hold-in' },
+      { text: 'Breathe Out', duration: 8000, class: 'exhale' }
+    ]},
+    simple: { name: 'Simple Breath', steps: [
+      { text: 'Breathe In', duration: 4000, class: 'inhale' },
+      { text: 'Breathe Out', duration: 4000, class: 'exhale' }
+    ]},
+    extended: { name: 'Extended Exhale', steps: [
+      { text: 'Breathe In', duration: 4000, class: 'inhale' },
+      { text: 'Hold', duration: 2000, class: 'hold-in' },
+      { text: 'Breathe Out', duration: 6000, class: 'exhale' }
+    ]}
+  };
+
+  function toggleBreathing() {
+    const btn = document.getElementById('breathBtn');
+    if (breathingActive) {
+      stopBreathing();
+      btn.textContent = '▶ Start';
+    } else {
+      startBreathing();
+      btn.textContent = '⏸ Pause';
+    }
+  }
+
+  function startBreathing() {
+    breathingActive = true;
+    breathCycles = 0;
+    const patternKey = document.getElementById('breathPattern').value;
+    const pattern = patterns[patternKey];
+    runBreathCycle(pattern, 0);
+  }
+
+  function runBreathCycle(pattern, stepIndex) {
+    if (!breathingActive) return;
+
+    const circle = document.getElementById('breathCircle');
+    const text = document.getElementById('breathText');
+    const timer = document.getElementById('breathTimer');
+    const counter = document.getElementById('cycleCounter');
+
+    const step = pattern.steps[stepIndex];
+    
+    // Remove all classes
+    circle.className = 'breathing-circle';
+    // Force reflow
+    void circle.offsetWidth;
+    // Add new class
+    circle.classList.add(step.class);
+    
+    text.textContent = step.text;
+    
+    // Countdown
+    let remaining = step.duration / 1000;
+    timer.textContent = remaining + 's';
+    
+    const countdownInterval = setInterval(() => {
+      remaining--;
+      if (remaining > 0) {
+        timer.textContent = remaining + 's';
+      } else {
+        clearInterval(countdownInterval);
+      }
+    }, 1000);
+
+    setTimeout(() => {
+      if (!breathingActive) {
+        clearInterval(countdownInterval);
+        return;
+      }
+      
+      const nextStep = stepIndex + 1;
+      if (nextStep >= pattern.steps.length) {
+        breathCycles++;
+        counter.textContent = 'Cycles completed: ' + breathCycles + (breathCycles >= 3 ? ' ✨ Beautiful' : '');
+        runBreathCycle(pattern, 0);
+      } else {
+        runBreathCycle(pattern, nextStep);
+      }
+    }, step.duration);
+  }
+
+  function stopBreathing() {
+    breathingActive = false;
+    const circle = document.getElementById('breathCircle');
+    const text = document.getElementById('breathText');
+    const timer = document.getElementById('breathTimer');
+    
+    circle.className = 'breathing-circle';
+    text.textContent = 'Ready';
+    timer.textContent = 'Press start when you\'re ready';
+  }
+
+  // Sing With Me
+  function playSong(li) {
+    const allItems = document.querySelectorAll('.sing-playlist li');
+    allItems.forEach(item => {
+      item.querySelector('.play-icon').textContent = '▶';
+      item.style.background = '';
+    });
+    
+    li.querySelector('.play-icon').textContent = '⏸';
+    li.style.background = 'rgba(42,157,143,0.08)';
+    
+    // In a real implementation, this would play audio
+    const title = li.querySelector('.song-title').textContent;
+    const visual = document.querySelector('.sing-text');
+    visual.innerHTML = `Now playing:<br><strong>${title}</strong><br><small style="opacity:0.7">Close your eyes and let it hold you. 💛</small>`;
+  }
+
+  // Vagus Nerve Steps Toggle
+  function toggleSteps(card) {
+    const steps = card.querySelector('.steps');
+    const hint = card.querySelector('.expand-hint');
+    
+    if (steps.classList.contains('visible')) {
+      steps.classList.remove('visible');
+      hint.textContent = 'Tap for step-by-step →';
+    } else {
+      // Close all others
+      document.querySelectorAll('.vagus-card .steps').forEach(s => s.classList.remove('visible'));
+      document.querySelectorAll('.vagus-card .expand-hint').forEach(h => h.textContent = 'Tap for step-by-step →');
+      
+      steps.classList.add('visible');
+      hint.textContent = 'Tap to close ↑';
+    }
+  }
+</script>
+
+</body>
+</html>

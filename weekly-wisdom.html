@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Wisdom — Words to Live By | EVOLVE</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2A9D8F;
+      --secondary: #FFFFFF;
+      --accent: #C8956C;
+      --font: 'DM Sans', 'Nunito', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font); line-height: 1.6; color: #333; background: #FAFAF8; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    a { color: var(--primary); text-decoration: none; }
+    nav { background: var(--primary); padding: 1rem; position: sticky; top: 0; z-index: 100; }
+    nav .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    nav .nav-brand { color: white; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.5px; }
+    nav .nav-links { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+    nav a { color: white; margin-right: 1.5rem; font-size: 0.95rem; transition: opacity 0.3s; }
+    nav a:hover { opacity: 0.8; }
+    footer { background: #333; color: white; padding: 2rem; text-align: center; }
+    footer p { font-size: 0.9rem; opacity: 0.85; }
+
+    /* Hero Section */
+    .wisdom-hero {
+      background: linear-gradient(135deg, #2A9D8F 0%, #1a7a6f 50%, #C8956C 100%);
+      padding: 4rem 20px 3rem;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .wisdom-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.08) 0%, transparent 50%);
+      animation: gentleFloat 15s ease-in-out infinite;
+    }
+    @keyframes gentleFloat {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(30px, -20px); }
+    }
+    .wisdom-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    .wisdom-hero .subtitle {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      font-weight: 300;
+      position: relative;
+    }
+    .wisdom-hero .decorative-line {
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      margin: 1rem auto 0;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .section-title h2 {
+      font-size: 1.8rem;
+      color: #333;
+      font-weight: 700;
+    }
+    .section-title p {
+      color: #777;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+    .section-title .line {
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+      margin: 0.75rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* Featured Wisdom Card */
+    .featured-section {
+      padding: 3rem 20px;
+    }
+    .featured-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(42, 157, 143, 0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .featured-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 50px rgba(42, 157, 143, 0.18);
+    }
+    .featured-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+    .featured-image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 360px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #e8f5f3, #f5ebe3);
+    }
+    .featured-image-wrapper .placeholder-art {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, #e8f5f3 0%, #d4ece8 30%, #f5ebe3 70%, #eeddd0 100%);
+      position: relative;
+    }
+    .placeholder-art .wisdom-icon {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+      animation: gentlePulse 3s ease-in-out infinite;
+    }
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.05); opacity: 1; }
+    }
+    .placeholder-art .wisdom-quote-overlay {
+      font-size: 1.3rem;
+      color: #2A9D8F;
+      font-style: italic;
+      font-weight: 500;
+      max-width: 80%;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .featured-content {
+      padding: 2rem 2.5rem 2.5rem;
+    }
+    .featured-date {
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .featured-content h3 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .featured-content .wisdom-text {
+      font-size: 1.05rem;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .featured-content .wisdom-text em {
+      color: var(--primary);
+      font-style: normal;
+      font-weight: 500;
+    }
+    .sandra-signature {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #f0ebe6;
+    }
+    .sandra-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .sandra-info span {
+      display: block;
+      font-size: 0.85rem;
+      color: #999;
+    }
+    .sandra-info strong {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    /* Wisdom Reel Player */
+    .reel-section {
+      padding: 3rem 20px;
+      background: white;
+    }
+    .reel-player-wrapper {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .reel-player {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 9/14;
+      max-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .reel-player:hover {
+      transform: scale(1.01);
+    }
+    .reel-placeholder {
+      text-align: center;
+      color: white;
+      padding: 2rem;
+    }
+    .reel-placeholder .play-btn {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      border: 2px solid rgba(255,255,255,0.3);
+      transition: all 0.3s;
+    }
+    .reel-player:hover .play-btn {
+      background: rgba(255,255,255,0.25);
+      transform: scale(1.1);
+    }
+    .play-btn svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+      margin-left: 4px;
+    }
+    .reel-placeholder h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    .reel-placeholder p {
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+    .reel-meta {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    /* Save and Share Actions */
+    .actions-bar {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      border: 2px solid #e8e4df;
+      background: white;
+      color: #555;
+      font-family: var(--font);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .action-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: #f0faf8;
+    }
+    .action-btn.saved {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: #fdf6f0;
+    }
+    .action-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+    .action-btn.primary-action {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .action-btn.primary-action:hover {
+      background: #238b7f;
+      border-color: #238b7f;
+      color: white;
+    }
+    .toast-notification {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #333;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      z-index: 1000;
+      transition: transform 0.4s ease;
+      pointer-events: none;
+    }
+    .toast-notification.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Wisdom Archive Grid */
+    .archive-section {
+      padding: 3rem 20px 4rem;
+    }
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .archive-card {
+      background: white;
+      border-radius: 18px;
+      padding: 1.8rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .archive-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--primary);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .archive-card:hover::before {
+      opacity: 1;
+    }
+    .archive-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(42, 157, 143, 0.12);
+    }
+    .archive-card .card-week {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+    .archive-card .card-date {
+      font-size: 0.8rem;
+      color: #aaa;
+      margin-bottom: 0.75rem;
+    }
+    .archive-card h4 {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .archive-card p {
+      font-size: 0.9rem;
+      color: #777;
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .archive-card .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid #f5f0eb;
+    }
+    .card-tag {
+      font-size: 0.75rem;
+      background: #f0faf8;
+      color: var(--primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .card-bookmark {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #ccc;
+      transition: color 0.3s;
+      padding: 0.25rem;
+    }
+    .card-bookmark:hover, .card-bookmark.active {
+      color: var(--accent);
+    }
+    .card-bookmark svg {
+      width: 18px;
+      height: 18px;
+    }
+    .load-more-wrapper {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+    .load-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      border: 2px solid var(--primary);
+      background: transparent;
+      color: var(--primary);
+      font-family: var(--font);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .load-more-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Gentle CTA */
+    .gentle-cta {
+      padding: 4rem 20px;
+      background: linear-gradient(135deg, #f0faf8 0%, #fdf6f0 100%);
+      text-align: center;
+    }
+    .cta-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    }
+    .cta-card .cta-emoji {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .cta-card h3 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+    .cta-card p {
+      color: #777;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.9rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(42, 157, 143, 0.3);
+    }
+    .cta-btn:hover {
+      background: #238b7f;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(42, 157, 143, 0.4);
+    }
+    .cta-secondary {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+    .cta-secondary a {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      padding: 1rem 20px 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .breadcrumb a, .breadcrumb span {
+      font-size: 0.85rem;
+      color: #999;
+    }
+    .breadcrumb a:hover {
+      color: var(--primary);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      nav .container {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      nav .nav-links {
+        justify-content: center;
+        gap: 0.15rem;
+      }
+      nav a {
+        margin-right: 0.75rem;
+        font-size: 0.82rem;
+      }
+      .wisdom-hero h1 {
+        font-size: 1.8rem;
+      }
+      .wisdom-hero .subtitle {
+        font-size: 1rem;
+      }
+      .featured-image-wrapper {
+        height: 250px;
+      }
+      .featured-content {
+        padding: 1.5rem;
+      }
+      .featured-content h3 {
+        font-size: 1.25rem;
+      }
+      .archive-grid {
+        grid-template-columns: 1fr;
+      }
+      .actions-bar {
+        gap: 0.75rem;
+      }
+      .action-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.82rem;
+      }
+      .cta-card {
+        padding: 2rem 1.5rem;
+      }
+      .section-title h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav .nav-links {
+        gap: 0;
+      }
+      nav a {
+        margin-right: 0.5rem;
+        font-size: 0.75rem;
+      }
+      .featured-image-wrapper {
+        height: 200px;
+      }
+      .wisdom-quote-overlay {
+        font-size: 1rem !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-brand">evolve-by-rocks2rings</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="weekly-wisdom.html">Weekly Wisdom</a>
+      <a href="confessions.html">Soul Whispers</a>
+      <a href="gentle-sos.html">Gentle SOS</a>
+      <a href="astrology.html">Astrology</a>
+      <a href="crystals.html">Crystal Lab</a>
+      <a href="reels.html">Reels</a>
+      <a href="shop.html">Shop</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="wisdom-hero">
+  <h1>✨ Weekly Wisdom</h1>
+  <p class="subtitle">Words to live by — gentle reminders for your soul, every week.</p>
+  <div class="decorative-line"></div>
+</section>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a> <span> / Weekly Wisdom</span>
+</div>
+
+<!-- Featured Wisdom Card -->
+<section class="featured-section">
+  <div class="section-title">
+    <h2>This Week's Wisdom</h2>
+    <p>Week 24 · June 2026</p>
+    <div class="line"></div>
+  </div>
+
+  <div class="featured-card" id="featured-card">
+    <div class="featured-image-wrapper">
+      <div class="placeholder-art">
+        <div class="wisdom-icon">🌿</div>
+        <div class="wisdom-quote-overlay">"You don't have to be healed to be worthy of love. You are worthy right now."</div>
+      </div>
+    </div>
+    <div class="featured-content">
+      <span class="featured-badge">✦ This Week's Feature</span>
+      <div class="featured-date">June 9 – June 15, 2026</div>
+      <h3>You Are Worthy Right Now</h3>
+      <p class="wisdom-text">
+        We often tell ourselves that we need to be "fixed" before we can be loved, before we deserve rest, before we're allowed to take up space. But healing isn't a prerequisite for worthiness — <em>it never was</em>.
+        <br><br>
+        This week, I want you to practice one thing: every time you catch yourself saying "I'll be happy when…" or "I'll deserve it once…" — pause. Breathe. And whisper to yourself: <em>"I am enough, exactly as I am, right now."</em>
+        <br><br>
+        You don't need to earn your place in this world. You already belong here. 🤍
+      </p>
+      <div class="sandra-signature">
+        <div class="sandra-avatar">S</div>
+        <div class="sandra-info">
+          <strong>Sandra</strong>
+          <span>Founder, EVOLVE by Rocks2Rings</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Save and Share Actions -->
+  <div class="actions-bar">
+    <button class="action-btn" id="saveBtn" onclick="toggleSave()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+      <span id="saveText">Save to Bookmarks</span>
+    </button>
+    <button class="action-btn" onclick="shareWisdom('copy')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      Copy Link
+    </button>
+    <button class="action-btn" onclick="shareWisdom('twitter')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+      Share
+    </button>
+    <button class="action-btn primary-action" onclick="shareWisdom('send')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l7.07 17 2.51-7.39L21 11.07z"></path></svg>
+      Send to a Friend
+    </button>
+  </div>
+</section>
+
+<!-- Wisdom Reel Player -->
+<section class="reel-section">
+  <div class="section-title">
+    <h2>This Week's Reel</h2>
+    <p>A gentle moment of reflection — press play when you're ready</p>
+    <div class="line"></div>
+  </div>
+
+  <div class="reel-player-wrapper">
+    <div class="reel-player" id="reelPlayer" onclick="playReel()">
+      <div class="reel-placeholder" id="reelPlaceholder">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
+        </div>
+        <h4>🎬 "You Are Worthy" — 45s</h4>
+        <p>A calming visual reminder with Sandra's voiceover</p>
+      </div>
+    </div>
+    <p class="reel-meta">
+      🎧 Best with headphones · <a href="reels.html">Watch more reels →</a>
+    </p>
+  </div>
+</section>
+
+<!-- Wisdom Archive Grid -->
+<section class="archive-section">
+  <div class="section-title">
+    <h2>Wisdom Archive</h2>
+    <p>Every word was written with you in mind</p>
+    <div class="line"></div>
+  </div>
+
+  <div class="archive-grid">
+    <!-- Card 1 -->
+    <div class="archive-card" onclick="expandCard(this)">
+      <div class="card-week">Week 23</div>
+      <div class="card-date">June 2 – June 8, 2026</div>
+      <h4>Rest Is Not a Reward — It's a Right</h4>
+      <p>You don't have to earn your rest. You don't have to push through exhaustion to prove your worth. Your body is not a machine, and your soul needs tending. This week, give yourself permission to pause without guilt.</p>
+      <div class="card-footer">
+        <span class="card-tag">🌙 Self-Care</span>
+        <button class="card-bookmark" onclick="event.stopPropagation(); toggleBookmark(this)" aria-label="Bookmark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="archive-card" onclick="expandCard(this)">
+      <div class="card-week">Week 22</div>
+      <div class="card-date">May 26 – June 1, 2026</div>
+      <h4>Your Sensitivity Is Your Superpower</h4>
+      <p>The world may tell you that you feel too much, that you're "too sensitive." But your ability to feel deeply is what connects you to the beauty others miss. Don't dim your light to make others comfortable.</p>
+      <div class="card-footer">
+        <span class="card-tag">💎 Empowerment</span>
+        <button class="card-bookmark" onclick="event.stopPropagation(); toggleBookmark(this)" aria-label="Bookmark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="archive-card" onclick="expandCard(this)">
+      <div class="card-week">Week 21</div>
+      <div class="card-date">May 19 – May 25, 2026</div>
+      <h4>Letting Go Doesn't Mean Giving Up</h4>
+      <p>Sometimes the bravest thing you can do is release what no longer serves you. Letting go of a relationship, a habit, or a version of yourself isn't failure — it's growth. Trust the unfolding.</p>
+      <div class="card-footer">
+        <span class="card-tag">🦋 Growth</span>
+        <button class="card-bookmark" onclick="event.stopPropagation(); toggleBookmark(this)" aria-label="Bookmark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="archive-card" onclick="expandCard(this)">
+      <div class="card-week">Week 20</div>
+      <div class="card-date">May 12 – May 18, 2026</div>
+      <h4>You Are Allowed to Start Over</h4>
+      <p>Every sunrise is an invitation to begin again. It doesn't matter how many times you've stumbled — what matters is that you keep choosing yourself. Today is a new page, and you hold the pen.</p>
+      <div class="card-footer">
+        <span class="card-tag">🌅 New Beginnings</span>
+        <button class="card-bookmark" onclick="event.stopPropagation(); toggleBookmark(this)" aria-label="Bookmark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="archive-card" onclick="expandCard(this)">
+      <div class="card-week">Week 19</div>
+      <div class="card-date">May 5 – May 11, 2026</div>
+      <h4>Your Boundaries Protect Your Peace</h4>
+      <p>Saying "no" is a complete sentence. You don't owe anyone an explanation for protecting your energy. Boundaries aren't walls — they're bridges to healthier, more honest relationships.</p>
+      <div class="card-footer">
+        <span class="card-tag">🛡️ Boundaries</span>
+        <button class="card-bookmark" onclick="event.stopPropagation(); toggleBookmark(this)" aria-label="Bookmark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="archive-card" onclick="expandCard(this)">
+      <div class="card-week">Week 18</div>
+      <div class="card-date">April 28 – May 4, 2026</div>
+      <h4>Healing Isn't Linear — And That's Okay</h4>
+      <p>Some days you'll feel on top of the world, and other days the weight will feel unbearable. Both are valid. Healing spirals — it circles back, and each time you're a little stronger than before.</p>
+      <div class="card-footer">
+        <span class="card-tag">🌀 Healing</span>
+        <button class="card-bookmark" onclick="event.stopPropagation(); toggleBookmark(this)" aria-label="Bookmark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="load-more-wrapper">
+    <button class="load-more-btn" onclick="loadMore()">
+      Load Earlier Wisdom
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+  </div>
+</section>
+
+<!-- Gentle CTA -->
+<section class="gentle-cta">
+  <div class="cta-card">
+    <div class="cta-emoji">🕊️</div>
+    <h3>Never Miss a Moment of Wisdom</h3>
+    <p>Get Sandra's weekly words delivered gently to your inbox every Monday morning. No spam, no pressure — just a soft reminder that you matter.</p>
+    <div style="display: flex; gap: 0.75rem; max-width: 400px; margin: 0 auto; flex-wrap: wrap; justify-content: center;">
+      <input type="email" placeholder="Your email address" style="flex: 1; min-width: 200px; padding: 0.8rem 1.2rem; border: 2px solid #e8e4df; border-radius: 50px; font-family: var(--font); font-size: 0.95rem; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#2A9D8F'" onblur="this.style.borderColor='#e8e4df'">
+      <a href="#" class="cta-btn" onclick="subscribeEmail(event)" style="white-space: nowrap;">Subscribe 💌</a>
+    </div>
+    <p class="cta-secondary">
+      Or explore more: <a href="confessions.html">Soul Whispers</a> · <a href="crystals.html">Crystal Lab</a> · <a href="index.html">Home</a>
+    </p>
+  </div>
+</section>
+
+<!-- Toast Notification -->
+<div class="toast-notification" id="toast"></div>
+
+<footer>
+  <div class="container">
+    <p>© 2026 EVOLVE by Rocks2Rings — Sandra. You are not alone.</p>
+  </div>
+</footer>
+
+<script>
+  // Toast notification
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+
+  // Save/Bookmark featured card
+  let isSaved = false;
+  function toggleSave() {
+    isSaved = !isSaved;
+    const btn = document.getElementById('saveBtn');
+    const text = document.getElementById('saveText');
+    if (isSaved) {
+      btn.classList.add('saved');
+      text.textContent = 'Saved ✓';
+      btn.querySelector('svg').setAttribute('fill', 'currentColor');
+      showToast('🔖 Wisdom saved to your bookmarks');
+    } else {
+      btn.classList.remove('saved');
+      text.textContent = 'Save to Bookmarks';
+      btn.querySelector('svg').setAttribute('fill', 'none');
+      showToast('Removed from bookmarks');
+    }
+  }
+
+  // Share wisdom
+  function shareWisdom(type) {
+    const wisdomText = "\"You don't have to be healed to be worthy of love. You are worthy right now.\" — Sandra, EVOLVE by Rocks2Rings";
+    if (type === 'copy') {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          showToast('🔗 Link copied to clipboard!');
+        });
+      } else {
+        showToast('🔗 Link copied!');
+      }
+    } else if (type === 'twitter') {
+      const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(wisdomText)}`;
+      window.open(url, '_blank', 'width=550,height=420');
+    } else if (type === 'send') {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Weekly Wisdom — EVOLVE',
+          text: wisdomText,
+          url: window.location.href
+        });
+      } else {
+        const mailUrl = `mailto:?subject=Weekly Wisdom from EVOLVE&body=${encodeURIComponent(wisdomText + '\n\n' + window.location.href)}`;
+        window.location.href = mailUrl;
+      }
+    }
+  }
+
+  // Play reel
+  function playReel() {
+    const placeholder = document.getElementById('reelPlaceholder');
+    placeholder.innerHTML = `
+      <div style="text-align: center;">
+        <div style="font-size: 3rem; margin-bottom: 1rem; animation: gentlePulse 2s ease-in-out infinite;">🌿</div>
+        <h4 style="margin-bottom: 0.5rem;">Now Playing...</h4>
+        <p style="opacity: 0.7; font-size: 0.85rem;">"You Are Worthy" — 0:45</p>
+        <div style="margin-top: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+          <div style="width: 200px; height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; overflow: hidden;">
+            <div id="progressBar" style="width: 0%; height: 100%; background: #C8956C; border-radius: 2px; transition: width 0.5s linear;"></div>
+          </div>
+          <span style="font-size: 0.75rem; opacity: 0.6;" id="timeDisplay">0:00</span>
+        </div>
+      </div>
+    `;
+    // Simulate playback
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += 2.22;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(interval);
+        showToast('🎬 Reel finished — visit Reels for more');
+      }
+      const bar = document.getElementById('progressBar');
+      const time = document.getElementById('timeDisplay');
+      if (bar) bar.style.width = progress + '%';
+      if (time) {
+        const seconds = Math.floor((progress / 100) * 45);
+        time.textContent = `0:${seconds.toString().padStart(2, '0')}`;
+      }
+    }, 1000);
+  }
+
+  // Toggle bookmark on archive cards
+  function toggleBookmark(btn) {
+    btn.classList.toggle('active');
+    if (btn.classList.contains('active')) {
+      btn.querySelector('svg').setAttribute('fill', 'currentColor');
+      showToast('🔖 Saved to your collection');
+    } else {
+      btn.querySelector('svg').setAttribute('fill', 'none');
+      showToast('Removed from collection');
+    }
+  }
+
+  // Expand archive card (simple visual feedback)
+  function expandCard(card) {
+    const allCards = document.querySelectorAll('.archive-card');
+    allCards.forEach(c => {
+      if (c !== card) {
+        c.style.maxHeight = '';
+        const p = c.querySelector('p');
+        if (p) {
+          p.style.webkitLineClamp = '3';
+          p.style.display = '-webkit-box';
+        }
+      }
+    });
+    const p = card.querySelector('p');
+    if (p) {
+      if (p.style.webkitLineClamp === 'unset') {
+        p.style.webkitLineClamp = '3';
+        p.style.display = '-webkit-box';
+      } else {
+        p.style.webkitLineClamp = 'unset';
+        p.style.display = 'block';
+      }
+    }
+  }
+
+  // Load more (simulated)
+  function loadMore() {
+    const grid = document.querySelector('.archive-grid');
+    const newCards = [
+      { week: 17, date: 'April 21 – April 27, 2026', title: 'You Are Not Your Worst Day', text: 'One bad day does not define your story. One mistake does not erase all the good you\'ve done. Be gentle with yourself — you\'re doing better than you think.', tag: '🌸 Compassion' },
+      { week: 16, date: 'April 14 – April 20, 2026', title: 'Small Steps Still Move You Forward', text: 'Progress doesn\'t always look dramatic. Sometimes it\'s getting out of bed. Sometimes it\'s drinking water. Sometimes it\'s just breathing. Every small step counts.', tag: '🐾 Progress' },
+      { week: 15, date: 'April 7 – April 13, 2026', title: 'Your Story Matters', text: 'Even the chapters you want to skip — they shaped you. Your story is not too messy, too broken, or too complicated. It\'s yours, and it\'s beautiful.', tag: '📖 Self-Worth' }
+    ];
+
+    newCards.forEach(c => {
+      const card = document.createElement('div');
+      card.className = 'archive-card';
+      card.onclick = function() { expandCard(this); };
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.innerHTML = `
+        <div class="card-week">Week ${c.week}</div>
+        <div class="card-date">${c.date}</div>
+        <h4>${c.title}</h4>
+        <p>${c.text}</p>
+        <div class="card-footer">
+          <span class="card-tag">${c.tag}</span>
+          <button class="card-bookmark" onclick="event.stopPropagation(); toggleBookmark(this)" aria-label="Bookmark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+          </button>
+        </div>
+      `;
+      grid.appendChild(card);
+      // Animate in
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 50);
+    });
+
+    // Hide button after loading
+    const btn = document.querySelector('.load-more-btn');
+    btn.textContent = 'All caught up 🤍';
+    btn.disabled = true;
+    btn.style.opacity = '0.5';
+    btn.style.cursor = 'default';
+    showToast('✨ 3 more wisdom entries loaded');
+  }
+
+  // Subscribe email
+  function subscribeEmail(e) {
+    e.preventDefault();
+    const input = document.querySelector('.cta-card input[type="email"]');
+    if (input.value && input.value.includes('@')) {
+      showToast('💌 Welcome! Your first wisdom arrives Monday.');
+      input.value = '';
+    } else {
+      showToast('Please enter a valid email address');
+      input.focus();
+    }
+  }
+</script>
+
+</body>
+</html>

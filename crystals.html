@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crystal How-To & Lab Authenticity | EVOLVE by Rocks2Rings</title>
+  <meta name="description" content="Explore crystal care, cleansing rituals, wearing guidance, and learn how the Rocks2Rings gemology lab authenticates every crystal with transparency and love.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2A9D8F;
+      --secondary: #FFFFFF;
+      --accent: #C8956C;
+      --font: 'DM Sans', 'Nunito', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font); line-height: 1.6; color: #333; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    a { color: var(--primary); text-decoration: none; }
+    nav { background: var(--primary); padding: 1rem; position: sticky; top: 0; z-index: 1000; }
+    nav .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    nav .nav-brand { color: white; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.5px; }
+    nav .nav-links { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+    nav a { color: white; margin-right: 1.5rem; font-size: 0.95rem; transition: opacity 0.3s; }
+    nav a:hover { opacity: 0.8; }
+    footer { background: #333; color: white; padding: 2rem; text-align: center; }
+    footer p { font-size: 0.95rem; opacity: 0.9; }
+
+    /* Hero */
+    .crystal-library-hero {
+      background: linear-gradient(135deg, #2A9D8F 0%, #1a7a6f 40%, #C8956C 100%);
+      color: white;
+      padding: 5rem 1rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .crystal-library-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 30%, rgba(255,255,255,0.05) 0%, transparent 50%);
+      animation: shimmer 8s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(3deg); }
+    }
+    .crystal-library-hero .hero-content { position: relative; z-index: 1; }
+    .crystal-library-hero .hero-icon { font-size: 3.5rem; margin-bottom: 1rem; display: block; }
+    .crystal-library-hero h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
+    .crystal-library-hero p { font-size: 1.15rem; max-width: 650px; margin: 0 auto 1.5rem; opacity: 0.95; }
+    .hero-badges { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+    .hero-badge {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Search Bar */
+    .search-bar {
+      background: #f0f7f6;
+      padding: 2rem 1rem;
+    }
+    .search-bar .container { max-width: 700px; }
+    .search-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .search-wrapper .search-icon {
+      position: absolute;
+      left: 1.25rem;
+      font-size: 1.2rem;
+      color: #999;
+      pointer-events: none;
+    }
+    .search-wrapper input {
+      width: 100%;
+      padding: 1rem 1rem 1rem 3.25rem;
+      border: 2px solid #ddd;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-family: var(--font);
+      transition: border-color 0.3s, box-shadow 0.3s;
+      background: white;
+    }
+    .search-wrapper input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(42,157,143,0.12);
+    }
+    .search-wrapper input::placeholder { color: #aaa; }
+
+    /* Category Filter Bar */
+    .category-filter-bar {
+      padding: 2rem 1rem 1rem;
+      background: white;
+    }
+    .category-filter-bar h2 {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+    .filter-buttons {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 0.6rem 1.5rem;
+      border: 2px solid var(--primary);
+      border-radius: 50px;
+      background: transparent;
+      color: var(--primary);
+      font-family: var(--font);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(42,157,143,0.3);
+    }
+
+    /* Crystal Care Cards */
+    .crystal-care-cards {
+      padding: 4rem 1rem;
+      background: white;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-header .label {
+      display: inline-block;
+      background: rgba(42,157,143,0.1);
+      color: var(--primary);
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.75rem;
+    }
+    .section-header h2 {
+      font-size: 2.2rem;
+      color: #222;
+      margin-bottom: 0.75rem;
+    }
+    .section-header p {
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+    .care-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .care-card {
+      background: #fafafa;
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      transition: all 0.4s;
+      border: 1px solid #eee;
+      position: relative;
+      overflow: hidden;
+    }
+    .care-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+    .care-card:hover::before { transform: scaleX(1); }
+    .care-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      border-color: transparent;
+    }
+    .care-card .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .care-card h3 {
+      font-size: 1.3rem;
+      color: #222;
+      margin-bottom: 0.75rem;
+    }
+    .care-card p {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+    .care-card .card-tag {
+      display: inline-block;
+      background: rgba(200,149,108,0.15);
+      color: var(--accent);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .care-card[data-category] { display: block; }
+    .care-card.hidden { display: none; }
+
+    /* Lab Authenticity Process */
+    .lab-authenticity-process {
+      padding: 5rem 1rem;
+      background: linear-gradient(180deg, #f0f7f6 0%, #fff 100%);
+    }
+    .process-timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--primary), var(--accent));
+      border-radius: 3px;
+    }
+    .process-step {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      align-items: flex-start;
+    }
+    .step-number {
+      width: 60px;
+      height: 60px;
+      min-width: 60px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      z-index: 1;
+      box-shadow: 0 4px 15px rgba(42,157,143,0.3);
+    }
+    .step-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      flex: 1;
+      border: 1px solid #eee;
+    }
+    .step-content h3 {
+      font-size: 1.2rem;
+      color: #222;
+      margin-bottom: 0.5rem;
+    }
+    .step-content p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    .step-content .step-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    /* Certificates Trust Section */
+    .certificates-trust-section {
+      padding: 5rem 1rem;
+      background: white;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .trust-card {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #fafafa, #f5f0eb);
+      border: 1px solid #eee;
+      transition: all 0.3s;
+    }
+    .trust-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    }
+    .trust-card .trust-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .trust-card h3 {
+      font-size: 1.15rem;
+      color: #222;
+      margin-bottom: 0.5rem;
+    }
+    .trust-card p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    .trust-banner {
+      margin-top: 3rem;
+      background: linear-gradient(135deg, var(--primary), #1a7a6f);
+      color: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      text-align: center;
+    }
+    .trust-banner h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .trust-banner p {
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+    .trust-banner .btn-outline {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      border: 2px solid white;
+      border-radius: 50px;
+      color: white;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .trust-banner .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* FAQ Accordion */
+    .crystal-faq-accordion {
+      padding: 5rem 1rem;
+      background: #f9f9f9;
+    }
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: white;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      border: 1px solid #eee;
+      transition: box-shadow 0.3s;
+    }
+    .faq-item:hover {
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+    .faq-question {
+      width: 100%;
+      padding: 1.5rem 2rem;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: var(--font);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #222;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      transition: color 0.3s;
+    }
+    .faq-question:hover { color: var(--primary); }
+    .faq-question .arrow {
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+      color: var(--primary);
+      min-width: 24px;
+      text-align: center;
+    }
+    .faq-item.open .faq-question .arrow { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 500px;
+    }
+    .faq-answer-inner {
+      padding: 0 2rem 1.5rem;
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* Cross-links */
+    .cross-links {
+      padding: 4rem 1rem;
+      background: white;
+    }
+    .cross-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .cross-link-card {
+      padding: 2rem 1.5rem;
+      border-radius: 16px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 2px solid #eee;
+      display: block;
+      color: #333;
+    }
+    .cross-link-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(42,157,143,0.12);
+    }
+    .cross-link-card .link-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+    .cross-link-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; color: var(--primary); }
+    .cross-link-card p { font-size: 0.85rem; color: #888; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav .container { flex-direction: column; gap: 0.75rem; }
+      nav .nav-links { justify-content: center; }
+      nav a { margin-right: 0.75rem; font-size: 0.85rem; }
+      .crystal-library-hero h1 { font-size: 2rem; }
+      .crystal-library-hero p { font-size: 1rem; }
+      .process-timeline::before { left: 20px; }
+      .step-number { width: 42px; height: 42px; min-width: 42px; font-size: 1rem; }
+      .process-step { gap: 1rem; }
+      .step-content { padding: 1.25rem; }
+      .section-header h2 { font-size: 1.7rem; }
+      .care-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+      .faq-question { padding: 1.25rem 1.25rem; font-size: 0.95rem; }
+      .faq-answer-inner { padding: 0 1.25rem 1.25rem; }
+    }
+    @media (max-width: 480px) {
+      .trust-grid { grid-template-columns: 1fr; }
+      .hero-badges { flex-direction: column; align-items: center; }
+      .cross-links-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-brand">evolve-by-rocks2rings</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="weekly-wisdom.html">Weekly Wisdom</a>
+      <a href="confessions.html">Soul Whispers</a>
+      <a href="gentle-sos.html">Gentle SOS</a>
+      <a href="astrology.html">Astrology</a>
+      <a href="crystals.html">Crystal Lab</a>
+      <a href="reels.html">Reels</a>
+      <a href="shop.html">Shop</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="crystal-library-hero">
+  <div class="hero-content">
+    <span class="hero-icon">🔬💎</span>
+    <h1>Crystal How-To & Lab</h1>
+    <p>Your gentle guide to crystal care, cleansing rituals, and wearing wisdom — plus a transparent look inside how we authenticate every stone with love and science.</p>
+    <div class="hero-badges">
+      <span class="hero-badge">✨ Cleansing Rituals</span>
+      <span class="hero-badge">🔍 Lab Verified</span>
+      <span class="hero-badge">💜 Wearing Guidance</span>
+      <span class="hero-badge">📜 Certified Authentic</span>
+    </div>
+  </div>
+</section>
+
+<!-- Search Bar -->
+<section class="search-bar">
+  <div class="container">
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="crystalSearch" placeholder="Search crystals, rituals, care tips..." aria-label="Search crystal library">
+    </div>
+  </div>
+</section>
+
+<!-- Category Filter Bar -->
+<section class="category-filter-bar">
+  <div class="container">
+    <h2>Browse by Category</h2>
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="cleansing">Cleansing</button>
+      <button class="filter-btn" data-filter="wearing">Wearing</button>
+      <button class="filter-btn" data-filter="charging">Charging</button>
+      <button class="filter-btn" data-filter="storage">Storage</button>
+      <button class="filter-btn" data-filter="intention">Intention</button>
+    </div>
+  </div>
+</section>
+
+<!-- Crystal Care Cards -->
+<section class="crystal-care-cards">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Crystal Education</span>
+      <h2>Care & Guidance Library</h2>
+      <p>Everything you need to know to honor, cleanse, and connect with your crystals on a deeper level.</p>
+    </div>
+    <div class="care-grid" id="careGrid">
+
+      <div class="care-card" data-category="cleansing" data-search="moonlight cleansing lunar full moon">
+        <span class="card-icon">🌙</span>
+        <h3>Moonlight Cleansing</h3>
+        <p>Place your crystals under the full moon's light overnight. This gentle method works for all crystal types and resets their energy beautifully. Best during full or new moon phases.</p>
+        <span class="card-tag">Cleansing</span>
+      </div>
+
+      <div class="care-card" data-category="cleansing" data-search="smoke sage palo santo smudging cleansing">
+        <span class="card-icon">🌿</span>
+        <h3>Smoke Cleansing</h3>
+        <p>Use sage, palo santo, or sweetgrass smoke to purify your crystals. Pass each stone through the smoke 3–4 times while setting a clear intention of release and renewal.</p>
+        <span class="card-tag">Cleansing</span>
+      </div>
+
+      <div class="care-card" data-category="cleansing" data-search="water cleansing running stream salt">
+        <span class="card-icon">💧</span>
+        <h3>Water Cleansing</h3>
+        <p>Hold water-safe crystals under running water for 1–2 minutes. Avoid this method for selenite, malachite, and other soft stones. Natural streams work best, but tap water is fine too.</p>
+        <span class="card-tag">Cleansing</span>
+      </div>
+
+      <div class="care-card" data-category="wearing" data-search="left hand receiving energy bracelet wearing">
+        <span class="card-icon">🤲</span>
+        <h3>Left Hand — Receiving</h3>
+        <p>Wear crystal bracelets on your left wrist to absorb their healing energy inward. The left side is your receiving side — perfect for amethyst, rose quartz, and moonstone.</p>
+        <span class="card-tag">Wearing</span>
+      </div>
+
+      <div class="care-card" data-category="wearing" data-search="right hand giving projecting energy bracelet wearing">
+        <span class="card-icon">✋</span>
+        <h3>Right Hand — Projecting</h3>
+        <p>Wear crystals on your right wrist to project energy outward. Choose black tourmaline for protection or citrine for manifesting abundance into the world around you.</p>
+        <span class="card-tag">Wearing</span>
+      </div>
+
+      <div class="care-card" data-category="wearing" data-search="necklace pendant heart throat chakra wearing">
+        <span class="card-icon">📿</span>
+        <h3>Necklace Placement</h3>
+        <p>Crystal pendants rest near your heart or throat chakra. Choose rose quartz for heart healing, lapis lazuli for communication, or clear quartz for overall amplification.</p>
+        <span class="card-tag">Wearing</span>
+      </div>
+
+      <div class="care-card" data-category="charging" data-search="sunlight charging solar energy vitality">
+        <span class="card-icon">☀️</span>
+        <h3>Sunlight Charging</h3>
+        <p>Brief morning sunlight (30 minutes max) energizes citrine, carnelian, and tiger's eye. Avoid prolonged sun for amethyst and rose quartz — they can fade over time.</p>
+        <span class="card-tag">Charging</span>
+      </div>
+
+      <div class="care-card" data-category="charging" data-search="selenite charging plate crystal cluster amplify">
+        <span class="card-icon">✨</span>
+        <h3>Selenite Charging</h3>
+        <p>Place crystals on a selenite plate or beside a selenite tower overnight. Selenite is self-cleansing and amplifies the energy of other stones without any extra effort.</p>
+        <span class="card-tag">Charging</span>
+      </div>
+
+      <div class="care-card" data-category="charging" data-search="earth burying grounding soil nature charging">
+        <span class="card-icon">🌍</span>
+        <h3>Earth Charging</h3>
+        <p>Bury your crystals in soil for 24 hours to reconnect them with Earth's grounding energy. Mark the spot well! This is especially powerful for grounding stones like smoky quartz.</p>
+        <span class="card-tag">Charging</span>
+      </div>
+
+      <div class="care-card" data-category="storage" data-search="storage soft cloth pouch separate protect">
+        <span class="card-icon">👝</span>
+        <h3>Proper Storage</h3>
+        <p>Store crystals in soft cloth pouches or lined boxes. Keep softer stones separate from harder ones to prevent scratching. Velvet-lined trays are ideal for display pieces.</p>
+        <span class="card-tag">Storage</span>
+      </div>
+
+      <div class="care-card" data-category="storage" data-search="travel protection carrying crystals safely portable">
+        <span class="card-icon">🧳</span>
+        <h3>Travel Protection</h3>
+        <p>Wrap crystals individually in soft fabric when traveling. Use a padded pouch or small box. Carry your favorite tumbled stone in your pocket for on-the-go comfort and grounding.</p>
+        <span class="card-tag">Storage</span>
+      </div>
+
+      <div class="care-card" data-category="intention" data-search="intention setting programming meditation purpose">
+        <span class="card-icon">🧘‍♀️</span>
+        <h3>Setting Intentions</h3>
+        <p>Hold your cleansed crystal, close your eyes, and speak your intention clearly. Visualize your goal flowing into the stone. Repeat this ritual whenever you feel called to reconnect.</p>
+        <span class="card-tag">Intention</span>
+      </div>
+
+      <div class="care-card" data-category="intention" data-search="meditation crystal grid sacred space ritual">
+        <span class="card-icon">🕯️</span>
+        <h3>Crystal Meditation</h3>
+        <p>Create a sacred space with candles and your chosen crystals. Hold one in each hand or place them on your body's chakra points. Breathe deeply and let their energy guide you inward.</p>
+        <span class="card-tag">Intention</span>
+      </div>
+
+      <div class="care-card" data-category="intention" data-search="journaling crystal companion reflection growth">
+        <span class="card-icon">📓</span>
+        <h3>Crystal Journaling</h3>
+        <p>Keep a crystal journal to track which stones you're drawn to, how they make you feel, and any shifts you notice. This deepens your relationship with your collection over time.</p>
+        <span class="card-tag">Intention</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Lab Authenticity Process -->
+<section class="lab-authenticity-process">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Our Lab Process</span>
+      <h2>How We Authenticate Every Crystal</h2>
+      <p>Transparency is our promise. Here's the journey every Rocks2Rings crystal takes before it reaches your hands.</p>
+    </div>
+    <div class="process-timeline">
+
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <span class="step-icon">🌎</span>
+          <h3>Ethical Sourcing</h3>
+          <p>We partner with trusted miners and suppliers who practice ethical, sustainable extraction. Every source is vetted for fair labor practices and environmental responsibility.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <span class="step-icon">🔬</span>
+          <h3>Visual & Microscopic Inspection</h3>
+          <p>Each crystal undergoes detailed visual examination and microscopic analysis to identify natural inclusions, color zoning, and growth patterns that confirm authenticity.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <span class="step-icon">⚖️</span>
+          <h3>Hardness & Density Testing</h3>
+          <p>We measure Mohs hardness and specific gravity to verify mineral identity. These non-destructive tests ensure your crystal matches its claimed composition exactly.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <span class="step-icon">🌈</span>
+          <h3>Spectral Analysis</h3>
+          <p>Advanced spectroscopy reveals the crystal's chemical fingerprint. This confirms natural coloring versus artificial dyes or heat treatments, ensuring pure, untreated beauty.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <span class="step-icon">📋</span>
+          <h3>Grading & Documentation</h3>
+          <p>Every crystal receives a quality grade based on clarity, color saturation, and formation. Full documentation is created, including origin details and test results.</p>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-number">6</div>
+        <div class="step-content">
+          <span class="step-icon">📜</span>
+          <h3>Certificate of Authenticity</h3>
+          <p>A personalized certificate accompanies your crystal, detailing its type, origin, grade, and authentication date. Your crystal's story, verified and sealed with care.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Certificates & Trust Section -->
+<section class="certificates-trust-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Trust & Transparency</span>
+      <h2>Why You Can Trust Our Crystals</h2>
+      <p>Every stone carries our promise of authenticity, ethical sourcing, and genuine healing energy.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <span class="trust-icon">🏅</span>
+        <h3>Lab Certified</h3>
+        <p>Every crystal is tested and certified by our in-house gemology lab with documented results.</p>
+      </div>
+      <div class="trust-card">
+        <span class="trust-icon">🌱</span>
+        <h3>Ethically Sourced</h3>
+        <p>We trace every stone back to its origin, ensuring fair trade and sustainable mining practices.</p>
+      </div>
+      <div class="trust-card">
+        <span class="trust-icon">🔒</span>
+        <h3>100% Natural</h3>
+        <p>No synthetic stones, no artificial dyes, no hidden treatments. What you see is what nature created.</p>
+      </div>
+      <div class="trust-card">
+        <span class="trust-icon">💌</span>
+        <h3>Personal Touch</h3>
+        <p>Each order includes a handwritten note, care guide, and your crystal's unique authenticity certificate.</p>
+      </div>
+    </div>
+    <div class="trust-banner">
+      <h3>🛡️ Our Authenticity Guarantee</h3>
+      <p>If any crystal you receive from Rocks2Rings is found to be inauthentic, we'll replace it immediately and refund your purchase — no questions asked. That's our promise to you.</p>
+      <a href="shop.html" class="btn-outline">Explore Authentic Crystals →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Accordion -->
+<section class="crystal-faq-accordion">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Common Questions</span>
+      <h2>Crystal FAQ</h2>
+      <p>Answers to the questions we hear most from our beautiful community.</p>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>How often should I cleanse my crystals?</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            We recommend cleansing your crystals at least once a month — ideally during the full moon. If you wear them daily or use them during emotionally intense times, cleanse them weekly. Trust your intuition: if a crystal feels heavy or dull, it's asking to be cleansed.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Can I wear multiple crystals at the same time?</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Absolutely! Many crystals complement each other beautifully. Rose quartz and amethyst create a calming, loving combination. However, avoid pairing stones with opposing energies (like a high-energy citrine with a calming blue lace agate) until you understand how each affects you individually.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>How do I know if my crystal is real?</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Real crystals have natural imperfections — tiny inclusions, color variations, and temperature coolness when held. Glass imitations are often too perfect and warm to the touch. Every Rocks2Rings crystal comes with a lab-verified certificate of authenticity, so you never have to wonder.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Which crystals should not be placed in water?</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Avoid water for: selenite (dissolves), malachite (releases toxins), pyrite (rusts), lepidolite (flakes), and hematite (rusts). A general rule: if a crystal is below 6 on the Mohs hardness scale, keep it dry. When in doubt, use smoke cleansing or selenite charging instead.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Can crystals really help with anxiety and emotional healing?</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Crystals are beautiful tools for mindfulness and intention-setting, which can absolutely support emotional wellbeing. Many people find comfort in holding amethyst during anxious moments or wearing rose quartz for self-love. They work best as companions alongside professional support — check out our <a href="gentle-sos.html">Gentle SOS</a> page for additional resources.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>What does the certificate of authenticity include?</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Each certificate includes: crystal type and mineral composition, country of origin, Mohs hardness rating, quality grade (clarity, color, formation), authentication date, and a unique certificate number. It's your crystal's personal passport — a record of its journey from earth to you.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>How do I choose the right crystal for me?</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Trust your intuition! Notice which crystals you're drawn to visually or energetically. You can also choose based on your current needs: rose quartz for love, amethyst for calm, citrine for confidence, black tourmaline for protection. Our <a href="astrology.html">Astrology</a> page also pairs crystals with your zodiac sign for personalized guidance.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Do you ship crystals internationally?</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Yes! We ship worldwide with careful, eco-friendly packaging to ensure your crystals arrive safely. Each crystal is individually wrapped and cushioned. Visit our <a href="shop.html">Shop</a> for current shipping options and delivery timelines.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Cross-links to other pages -->
+<section class="cross-links">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Keep Exploring</span>
+      <h2>Continue Your Journey</h2>
+      <p>Crystals are just one part of your EVOLVE experience. Discover more gentle tools for your soul.</p>
+    </div>
+    <div class="cross-links-grid">
+      <a href="astrology.html" class="cross-link-card">
+        <span class="link-icon">♈</span>
+        <h3>Astrology</h3>
+        <p>Find your zodiac crystal match</p>
+      </a>
+      <a href="shop.html" class="cross-link-card">
+        <span class="link-icon">🛍️</span>
+        <h3>Shop</h3>
+        <p>Browse authenticated crystal jewelry</p>
+      </a>
+      <a href="weekly-wisdom.html" class="cross-link-card">
+        <span class="link-icon">🌿</span>
+        <h3>Weekly Wisdom</h3>
+        <p>Gentle affirmations & guidance</p>
+      </a>
+      <a href="gentle-sos.html" class="cross-link-card">
+        <span class="link-icon">💛</span>
+        <h3>Gentle SOS</h3>
+        <p>Emotional support when you need it</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 EVOLVE by Rocks2Rings — Sandra. You are not alone.</p>
+  </div>
+</footer>
+
+<script>
+  // FAQ Accordion
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      const isOpen = item.classList.contains('open');
+      
+      // Close all items
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      
+      // Open clicked item if it wasn't already open
+      if (!isOpen) {
+        item.classList.add('open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Category Filter
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active button
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      const filter = btn.dataset.filter;
+      const cards = document.querySelectorAll('.care-card');
+      
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.classList.remove('hidden');
+          card.style.display = 'block';
+        } else {
+          card.classList.add('hidden');
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Search
+  const searchInput = document.getElementById('crystalSearch');
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.care-card');
+    
+    // Reset filter buttons
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+    
+    cards.forEach(card => {
+      const searchText = (card.dataset.search + ' ' + card.textContent).toLowerCase();
+      if (query === '' || searchText.includes(query)) {
+        card.classList.remove('hidden');
+        card.style.display = 'block';
+      } else {
+        card.classList.add('hidden');
+        card.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

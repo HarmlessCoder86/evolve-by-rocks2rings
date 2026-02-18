@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intentional Jewelry — Pendants, Bracelets & Sets | EVOLVE Shop</title>
+  <meta name="description" content="Shop intentional jewelry crafted with healing crystals and love. Pendants, bracelets & curated sets designed for sensitive, spiritual women. As seen in Sedona.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2A9D8F;
+      --secondary: #FFFFFF;
+      --accent: #C8956C;
+      --font: 'DM Sans', 'Nunito', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font); line-height: 1.6; color: #333; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    a { color: var(--primary); text-decoration: none; }
+    nav { background: var(--primary); padding: 1rem; position: sticky; top: 0; z-index: 1000; }
+    nav .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    nav .nav-brand { color: white; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.5px; }
+    nav .nav-links { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+    nav a { color: white; margin-right: 1.5rem; font-size: 0.95rem; transition: opacity 0.3s; }
+    nav a:hover { opacity: 0.8; }
+    footer { background: #333; color: white; padding: 2rem; text-align: center; }
+    footer p { font-size: 0.9rem; opacity: 0.9; }
+
+    /* Hero Story */
+    .shop-hero-story {
+      background: linear-gradient(135deg, #1a7a6e 0%, #2A9D8F 40%, var(--accent) 100%);
+      color: white;
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .shop-hero-story::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.05) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 30%, rgba(200,149,108,0.1) 0%, transparent 50%);
+      animation: shimmer 15s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(3deg); }
+    }
+    .shop-hero-story .hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .shop-hero-story .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+    .shop-hero-story h1 {
+      font-size: 2.8rem;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .shop-hero-story h1 em {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .shop-hero-story p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 550px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+    .hero-cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-hero {
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 2px solid white;
+      background: transparent;
+      color: white;
+    }
+    .btn-hero.filled {
+      background: white;
+      color: var(--primary);
+    }
+    .btn-hero:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+
+    /* Filter Bar */
+    .filter-bar {
+      background: #f8f6f3;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #e8e4df;
+      position: sticky;
+      top: 60px;
+      z-index: 100;
+    }
+    .filter-bar .container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .filter-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      border: 1.5px solid #d4cfc9;
+      border-radius: 50px;
+      background: white;
+      font-size: 0.82rem;
+      font-family: var(--font);
+      cursor: pointer;
+      transition: all 0.3s;
+      color: #555;
+      white-space: nowrap;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: rgba(42,157,143,0.06);
+    }
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+    .filter-select {
+      padding: 0.5rem 1rem;
+      border: 1.5px solid #d4cfc9;
+      border-radius: 50px;
+      background: white;
+      font-size: 0.82rem;
+      font-family: var(--font);
+      cursor: pointer;
+      color: #555;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 2rem;
+    }
+    .results-count {
+      font-size: 0.85rem;
+      color: #999;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    /* Best Sellers Carousel */
+    .best-sellers {
+      padding: 4rem 0 3rem;
+      background: white;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .section-header .tag {
+      display: inline-block;
+      background: rgba(42,157,143,0.08);
+      color: var(--primary);
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 300;
+      color: #2c2c2c;
+    }
+    .section-header h2 em { color: var(--accent); font-weight: 500; }
+    .section-header p {
+      color: #777;
+      max-width: 500px;
+      margin: 0.75rem auto 0;
+      font-size: 0.95rem;
+    }
+    .carousel-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+    .carousel-track {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      padding: 0.5rem 20px 1rem;
+      -ms-overflow-style: none;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .carousel-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .carousel-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+      background: white;
+      color: var(--primary);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Product Grid */
+    .product-grid-section {
+      padding: 3rem 0 4rem;
+      background: #faf9f7;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+      transition: all 0.4s;
+      cursor: pointer;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    }
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      z-index: 2;
+    }
+    .badge-bestseller { background: var(--accent); color: white; }
+    .badge-new { background: var(--primary); color: white; }
+    .badge-set { background: #8B5CF6; color: white; }
+    .badge-sedona { background: #E76F51; color: white; }
+    .product-wishlist {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      z-index: 2;
+      backdrop-filter: blur(10px);
+    }
+    .product-wishlist:hover { background: #fff; transform: scale(1.1); }
+    .product-wishlist.liked { color: #E76F51; }
+    .product-image {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, #f0ebe5, #e8e2da);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-image .img-placeholder {
+      font-size: 4rem;
+      opacity: 0.3;
+    }
+    .product-image .quick-view {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(42,157,143,0.92);
+      color: white;
+      text-align: center;
+      padding: 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transform: translateY(100%);
+      transition: transform 0.3s;
+      backdrop-filter: blur(10px);
+    }
+    .product-card:hover .quick-view { transform: translateY(0); }
+    .product-info {
+      padding: 1.25rem 1.5rem 1.5rem;
+    }
+    .product-category {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .product-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2c2c2c;
+      margin-bottom: 0.4rem;
+    }
+    .product-story {
+      font-size: 0.85rem;
+      color: #888;
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .product-price {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .product-price .original {
+      font-size: 0.85rem;
+      color: #bbb;
+      text-decoration: line-through;
+      font-weight: 400;
+      margin-left: 0.4rem;
+    }
+    .product-options {
+      display: flex;
+      gap: 0.3rem;
+    }
+    .option-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #e0dcd7;
+      cursor: pointer;
+      transition: border-color 0.3s;
+    }
+    .option-dot:hover { border-color: var(--primary); }
+    .product-stars {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .star { color: var(--accent); font-size: 0.8rem; }
+    .star-count { font-size: 0.75rem; color: #aaa; margin-left: 0.3rem; }
+    .btn-add-cart {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 0.75rem;
+      letter-spacing: 0.5px;
+    }
+    .btn-add-cart:hover { background: #238b7e; transform: translateY(-1px); }
+
+    /* Why This Piece Story */
+    .why-this-piece {
+      padding: 5rem 0;
+      background: white;
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .story-visual {
+      position: relative;
+    }
+    .story-image-main {
+      width: 100%;
+      height: 450px;
+      background: linear-gradient(135deg, #e8ddd3, #d4c5b5);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      opacity: 0.4;
+    }
+    .story-image-float {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 160px;
+      height: 160px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 1.5rem;
+      font-weight: 500;
+      line-height: 1.4;
+      box-shadow: 0 10px 30px rgba(200,149,108,0.3);
+    }
+    .story-text .tag {
+      display: inline-block;
+      background: rgba(200,149,108,0.12);
+      color: var(--accent);
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .story-text h2 {
+      font-size: 2.2rem;
+      font-weight: 300;
+      line-height: 1.3;
+      margin-bottom: 1.25rem;
+      color: #2c2c2c;
+    }
+    .story-text h2 em { color: var(--primary); font-weight: 500; }
+    .story-text p {
+      color: #666;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .story-values {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .value-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      background: #f8f6f3;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      color: #555;
+    }
+    .value-chip .icon { font-size: 1rem; }
+
+    /* Sedona Story Block */
+    .sedona-story {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 50%, #3d2015 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .sedona-story::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 80%, rgba(200,149,108,0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(42,157,143,0.1) 0%, transparent 50%);
+    }
+    .sedona-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .sedona-text .tag {
+      display: inline-block;
+      background: rgba(200,149,108,0.2);
+      color: var(--accent);
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .sedona-text h2 {
+      font-size: 2.2rem;
+      font-weight: 300;
+      line-height: 1.3;
+      margin-bottom: 1.25rem;
+    }
+    .sedona-text h2 em { color: var(--accent); font-weight: 500; }
+    .sedona-text p {
+      opacity: 0.85;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .sedona-text blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 1.25rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      opacity: 0.9;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .sedona-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .sedona-img {
+      border-radius: 12px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      opacity: 0.5;
+    }
+    .sedona-img:nth-child(1) { background: linear-gradient(135deg, #c8956c, #a67a52); grid-column: span 2; height: 200px; }
+    .sedona-img:nth-child(2) { background: linear-gradient(135deg, #8B5E3C, #6B4226); }
+    .sedona-img:nth-child(3) { background: linear-gradient(135deg, #D4A574, #B8895A); }
+
+    /* Shipping & Returns */
+    .shipping-info {
+      padding: 4rem 0;
+      background: #f8f6f3;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .info-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+      transition: transform 0.3s;
+    }
+    .info-card:hover { transform: translateY(-4px); }
+    .info-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .info-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #2c2c2c;
+      margin-bottom: 0.5rem;
+    }
+    .info-card p {
+      font-size: 0.85rem;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    /* Checkout CTA */
+    .checkout-cta {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, var(--primary) 0%, #1a7a6e 100%);
+      color: white;
+      text-align: center;
+    }
+    .checkout-cta h2 {
+      font-size: 2.2rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    .checkout-cta h2 em { color: var(--accent); font-weight: 500; }
+    .checkout-cta p {
+      opacity: 0.9;
+      max-width: 550px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .checkout-cta .btn-checkout {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: white;
+      color: var(--primary);
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    .checkout-cta .btn-checkout:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+    .checkout-links {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .checkout-links a {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    .checkout-links a:hover { color: white; }
+
+    /* Product Detail Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-content {
+      background: white;
+      border-radius: 20px;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,0.06);
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .modal-close:hover { background: rgba(0,0,0,0.12); }
+    .modal-image {
+      background: linear-gradient(135deg, #f0ebe5, #e8e2da);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      opacity: 0.3;
+      min-height: 400px;
+      border-radius: 20px 0 0 20px;
+    }
+    .modal-details {
+      padding: 2.5rem;
+    }
+    .modal-details .product-category { margin-bottom: 0.5rem; }
+    .modal-details .product-name { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .modal-details .product-stars { margin-bottom: 0.75rem; }
+    .modal-details .product-price { font-size: 1.4rem; margin-bottom: 1rem; }
+    .modal-description {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .modal-option-group {
+      margin-bottom: 1.25rem;
+    }
+    .modal-option-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+    .modal-options {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .modal-opt-btn {
+      padding: 0.5rem 1rem;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      background: white;
+      font-family: var(--font);
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .modal-opt-btn:hover, .modal-opt-btn.selected {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .modal-opt-btn.selected { background: rgba(42,157,143,0.06); }
+    .modal-crystal-note {
+      background: #f8f6f3;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .modal-crystal-note .note-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .modal-crystal-note p { font-size: 0.85rem; color: #666; line-height: 1.6; }
+    .modal-crystal-note a { font-weight: 600; }
+    .modal-add-cart {
+      width: 100%;
+      padding: 1rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 0.5rem;
+    }
+    .modal-add-cart:hover { background: #238b7e; }
+    .modal-shipping-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #999;
+      margin-top: 0.75rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .info-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      nav .container { flex-direction: column; gap: 0.75rem; }
+      nav .nav-links { justify-content: center; }
+      nav a { margin-right: 0.75rem; font-size: 0.82rem; }
+      .shop-hero-story { padding: 3.5rem 1rem 3rem; }
+      .shop-hero-story h1 { font-size: 2rem; }
+      .filter-bar { top: auto; position: relative; }
+      .filter-bar .container { justify-content: center; }
+      .results-count { margin-left: 0; width: 100%; text-align: center; }
+      .product-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.25rem; }
+      .story-grid, .sedona-content { grid-template-columns: 1fr; gap: 2.5rem; }
+      .story-image-float { right: 10px; bottom: -10px; width: 130px; height: 130px; font-size: 0.72rem; }
+      .info-grid { grid-template-columns: 1fr 1fr; }
+      .modal-content { grid-template-columns: 1fr; max-height: 95vh; }
+      .modal-image { min-height: 250px; border-radius: 20px 20px 0 0; }
+      .modal-details { padding: 1.5rem; }
+      .checkout-cta h2 { font-size: 1.7rem; }
+    }
+    @media (max-width: 480px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 1fr; }
+      .hero-cta-group { flex-direction: column; align-items: center; }
+      .sedona-gallery { grid-template-columns: 1fr; }
+      .sedona-img:nth-child(1) { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-brand">evolve-by-rocks2rings</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="weekly-wisdom.html">Weekly Wisdom</a>
+      <a href="confessions.html">Soul Whispers</a>
+      <a href="gentle-sos.html">Gentle SOS</a>
+      <a href="astrology.html">Astrology</a>
+      <a href="crystals.html">Crystal Lab</a>
+      <a href="reels.html">Reels</a>
+      <a href="shop.html">Shop</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Shop Hero Story -->
+<section class="shop-hero-story">
+  <div class="hero-content">
+    <span class="hero-tag">✦ Intentional Jewelry ✦</span>
+    <h1>Wear Your <em>Intention</em>,<br>Not Just Your Style</h1>
+    <p>Every piece in the EVOLVE collection is designed to be a quiet companion — a reminder on your wrist, a whisper at your heart, a grounding force when the world feels too loud.</p>
+    <div class="hero-cta-group">
+      <button class="btn-hero filled" onclick="document.querySelector('.product-grid-section').scrollIntoView({behavior:'smooth'})">Shop All Pieces</button>
+      <button class="btn-hero" onclick="document.querySelector('.best-sellers').scrollIntoView({behavior:'smooth'})">See Best Sellers</button>
+    </div>
+  </div>
+</section>
+
+<!-- Best Sellers Carousel -->
+<section class="best-sellers">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">♡ Most Loved</span>
+      <h2>Our <em>Best Sellers</em></h2>
+      <p>The pieces our community reaches for again and again — for themselves and the women they love.</p>
+    </div>
+    <div class="carousel-wrapper">
+      <div class="carousel-track" id="bestSellerTrack">
+        <!-- Best Seller 1 -->
+        <div class="product-card" style="min-width:300px; flex-shrink:0;" onclick="openModal(0)">
+          <span class="product-badge badge-bestseller">Best Seller</span>
+          <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+          <div class="product-image">
+            <span class="img-placeholder">💎</span>
+            <div class="quick-view">Quick View</div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Pendant</div>
+            <div class="product-name">The Grounding Stone</div>
+            <div class="product-stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              <span class="star-count">(128)</span>
+            </div>
+            <div class="product-story">Black tourmaline wrapped in sterling silver — for the woman who absorbs everyone's energy and needs her own shield.</div>
+            <div class="product-meta">
+              <span class="product-price">$68</span>
+              <div class="product-options">
+                <span class="option-dot" style="background:#C0C0C0;" title="Sterling Silver"></span>
+                <span class="option-dot" style="background:#FFD700;" title="Gold Filled"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Best Seller 2 -->
+        <div class="product-card" style="min-width:300px; flex-shrink:0;" onclick="openModal(1)">
+          <span class="product-badge badge-bestseller">Best Seller</span>
+          <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+          <div class="product-image">
+            <span class="img-placeholder">🌙</span>
+            <div class="quick-view">Quick View</div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Bracelet</div>
+            <div class="product-name">Moonlit Calm Stack</div>
+            <div class="product-stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              <span class="star-count">(94)</span>
+            </div>
+            <div class="product-story">Moonstone + amethyst beads on stretch cord — for anxious nights and restless hearts seeking peace.</div>
+            <div class="product-meta">
+              <span class="product-price">$42</span>
+              <div class="product-options">
+                <span class="option-dot" style="background:#E8D5E0;" title="Lavender"></span>
+                <span class="option-dot" style="background:#D4E5F7;" title="Celestial Blue"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Best Seller 3 -->
+        <div class="product-card" style="min-width:300px; flex-shrink:0;" onclick="openModal(2)">
+          <span class="product-badge badge-sedona">As Seen in Sedona</span>
+          <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+          <div class="product-image">
+            <span class="img-placeholder">🔮</span>
+            <div class="quick-view">Quick View</div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Curated Set</div>
+            <div class="product-name">Sedona Sunrise Set</div>
+            <div class="product-stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              <span class="star-count">(76)</span>
+            </div>
+            <div class="product-story">Carnelian pendant + red jasper bracelet — charged under Sedona's vortex energy for courage and new beginnings.</div>
+            <div class="product-meta">
+              <span class="product-price">$98 <span class="original">$110</span></span>
+              <div class="product-options">
+                <span class="option-dot" style="background:#D4724E;" title="Copper"></span>
+                <span class="option-dot" style="background:#C0C0C0;" title="Silver"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Best Seller 4 -->
+        <div class="product-card" style="min-width:300px; flex-shrink:0;" onclick="openModal(3)">
+          <span class="product-badge badge-bestseller">Best Seller</span>
+          <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+          <div class="product-image">
+            <span class="img-placeholder">💗</span>
+            <div class="quick-view">Quick View</div>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Pendant</div>
+            <div class="product-name">Heart Opener</div>
+            <div class="product-stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">☆</span>
+              <span class="star-count">(63)</span>
+            </div>
+            <div class="product-story">Rose quartz in a gold-filled bezel — for the woman learning to love herself as fiercely as she loves others.</div>
+            <div class="product-meta">
+              <span class="product-price">$72</span>
+              <div class="product-options">
+                <span class="option-dot" style="background:#FFD700;" title="Gold Filled"></span>
+                <span class="option-dot" style="background:#E8B4B8;" title="Rose Gold"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-btn" onclick="scrollCarousel(-1)">←</button>
+        <button class="carousel-btn" onclick="scrollCarousel(1)">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filter Bar -->
+<section class="filter-bar" id="filterBar">
+  <div class="container">
+    <span class="filter-label">Filter:</span>
+    <div class="filter-group">
+      <button class="filter-btn active" onclick="setFilter(this, 'all')">All</button>
+      <button class="filter-btn" onclick="setFilter(this, 'pendant')">Pendants</button>
+      <button class="filter-btn" onclick="setFilter(this, 'bracelet')">Bracelets</button>
+      <button class="filter-btn" onclick="setFilter(this, 'set')">Sets</button>
+      <button class="filter-btn" onclick="setFilter(this, 'new')">New Arrivals</button>
+      <select class="filter-select" onchange="filterByMetal(this.value)">
+        <option value="all">All Metals</option>
+        <option value="silver">Sterling Silver</option>
+        <option value="gold">Gold Filled</option>
+        <option value="rosegold">Rose Gold</option>
+        <option value="copper">Copper</option>
+      </select>
+      <select class="filter-select" onchange="filterByStone(this.value)">
+        <option value="all">All Stones</option>
+        <option value="amethyst">Amethyst</option>
+        <option value="rose-quartz">Rose Quartz</option>
+        <option value="tourmaline">Black Tourmaline</option>
+        <option value="moonstone">Moonstone</option>
+        <option value="carnelian">Carnelian</option>
+        <option value="labradorite">Labradorite</option>
+      </select>
+      <select class="filter-select" onchange="filterByPrice(this.value)">
+        <option value="all">Any Price</option>
+        <option value="under50">Under $50</option>
+        <option value="50to100">$50 – $100</option>
+        <option value="over100">$100+</option>
+      </select>
+    </div>
+    <span class="results-count" id="resultsCount">Showing 12 pieces</span>
+  </div>
+</section>
+
+<!-- Product Grid -->
+<section class="product-grid-section">
+  <div class="container">
+    <div class="product-grid" id="productGrid">
+
+      <!-- Product 1 -->
+      <div class="product-card" data-type="pendant" data-metal="silver gold" data-stone="tourmaline" data-price="68" data-new="false" onclick="openModal(0)">
+        <span class="product-badge badge-bestseller">Best Seller</span>
+        <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+        <div class="product-image">
+          <span class="img-placeholder">💎</span>
+          <div class="quick-view">Quick View</div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">Pendant</div>
+          <div class="product-name">The Grounding Stone</div>
+          <div class="product-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="star-count">(128)</span>
+          </div>
+          <div class="product-story">Black tourmaline wrapped in sterling silver — for the woman who absorbs everyone's energy.</div>
+          <div class="product-meta">
+            <span class="product-price">$68</span>
+            <div class="product-options">
+              <span class="option-dot" style="background:#C0C0C0;" title="Sterling Silver"></span>
+              <span class="option-dot" style="background:#FFD700;" title="Gold Filled"></span>
+            </div>
+          </div>
+          <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('The Grounding Stone')">Add to Cart — $68</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card" data-type="bracelet" data-metal="silver" data-stone="moonstone amethyst" data-price="42" data-new="false" onclick="openModal(1)">
+        <span class="product-badge badge-bestseller">Best Seller</span>
+        <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+        <div class="product-image">
+          <span class="img-placeholder">🌙</span>
+          <div class="quick-view">Quick View</div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">Bracelet</div>
+          <div class="product-name">Moonlit Calm Stack</div>
+          <div class="product-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="star-count">(94)</span>
+          </div>
+          <div class="product-story">Moonstone + amethyst beads on stretch cord — for anxious nights and restless hearts.</div>
+          <div class="product-meta">
+            <span class="product-price">$42</span>
+            <div class="product-options">
+              <span class="option-dot" style="background:#E8D5E0;" title="Lavender"></span>
+              <span class="option-dot" style="background:#D4E5F7;" title="Celestial Blue"></span>
+            </div>
+          </div>
+          <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Moonlit Calm Stack')">Add to Cart — $42</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card" data-type="set" data-metal="copper silver" data-stone="carnelian" data-price="98" data-new="false" onclick="openModal(2)">
+        <span class="product-badge badge-sedona">As Seen in Sedona</span>
+        <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+        <div class="product-image">
+          <span class="img-placeholder">🔮</span>
+          <div class="quick-view">Quick View</div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">Curated Set</div>
+          <div class="product-name">Sedona Sunrise Set</div>
+          <div class="product-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="star-count">(76)</span>
+          </div>
+          <div class="product-story">Carnelian pendant + red jasper bracelet — charged under Sedona's vortex energy for courage.</div>
+          <div class="product-meta">
+            <span class="product-price">$98 <span class="original">$110</span></span>
+            <div class="product-options">
+              <span class="option-dot" style="background:#D4724E;" title="Copper"></span>
+              <span class="option-dot" style="background:#C0C0C0;" title="Silver"></span>
+            </div>
+          </div>
+          <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Sedona Sunrise Set')">Add to Cart — $98</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card" data-type="pendant" data-metal="gold rosegold" data-stone="rose-quartz" data-price="72" data-new="false" onclick="openModal(3)">
+        <span class="product-badge badge-bestseller">Best Seller</span>
+        <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+        <div class="product-image">
+          <span class="img-placeholder">💗</span>
+          <div class="quick-view">Quick View</div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">Pendant</div>
+          <div class="product-name">Heart Opener</div>
+          <div class="product-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">☆</span>
+            <span class="star-count">(63)</span>
+          </div>
+          <div class="product-story">Rose quartz in a gold-filled bezel — for the woman learning to love herself fiercely.</div>
+          <div class="product-meta">
+            <span class="product-price">$72</span>
+            <div class="product-options">
+              <span class="option-dot" style="background:#FFD700;" title="Gold Filled"></span>
+              <span class="option-dot" style="background:#E8B4B8;" title="Rose Gold"></span>
+            </div>
+          </div>
+          <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Heart Opener')">Add to Cart — $72</button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-card" data-type="bracelet" data-metal="gold" data-stone="labradorite" data-price="56" data-new="true" onclick="openModal(4)">
+        <span class="product-badge badge-new">New</span>
+        <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+        <div class="product-image">
+          <span class="img-placeholder">✨</span>
+          <div class="quick-view">Quick View</div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">Bracelet</div>
+          <div class="product-name">Inner Light Cuff</div>
+          <div class="product-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="star-count">(31)</span>
+          </div>
+          <div class="product-story">Labradorite chips in gold-filled wire — for the woman discovering her own magic after dimming it for years.</div>
+          <div class="product-meta">
+            <span class="product-price">$56</span>
+            <div class="product-options">
+              <span class="option-dot" style="background:#FFD700;" title="Gold Filled"></span>
+            </div>
+          </div>
+          <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Inner Light Cuff')">Add to Cart — $56</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card" data-type="pendant" data-metal="silver" data-stone="amethyst" data-price="62" data-new="true" onclick="openModal(5)">
+        <span class="product-badge badge-new">New</span>
+        <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+        <div class="product-image">
+          <span class="img-placeholder">🔮</span>
+          <div class="quick-view">Quick View</div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">Pendant</div>
+          <div class="product-name">Third Eye Teardrop</div>
+          <div class="product-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="star-count">(22)</span>
+          </div>
+          <div class="product-story">Amethyst teardrop in sterling silver — for trusting your intuition when the noise gets too loud.</div>
+          <div class="product-meta">
+            <span class="product-price">$62</span>
+            <div class="product-options">
+              <span class="option-dot" style="background:#C0C0C0;" title="Sterling Silver"></span>
+            </div>
+          </div>
+          <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Third Eye Teardrop')">Add to Cart — $62</button>
+        </div>
+      </div>
+
+      <!-- Product 7 -->
+      <div class="product-card" data-type="set" data-metal="silver rosegold" data-stone="rose-quartz amethyst" data-price="115" data-new="false" onclick="openModal(6)">
+        <span class="product-badge badge-set">Curated Set</span>
+        <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+        <div class="product-image">
+          <span class="img-placeholder">🎁</span>
+          <div class="quick-view">Quick View</div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">Curated Set</div>
+          <div class="product-name">Self-Love Ritual Set</div>
+          <div class="product-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="star-count">(58)</span>
+          </div>
+          <div class="product-story">Rose quartz pendant + amethyst bracelet + intention card — a complete self-love ceremony in a box.</div>
+          <div class="product-meta">
+            <span class="product-price">$115 <span class="original">$134</span></span>
+            <div class="product-options">
+              <span class="option-dot" style="background:#C0C0C0;" title="Silver"></span>
+              <span class="option-dot" style="background:#E8B4B8;" title="Rose Gold"></span>
+            </div>
+          </div>
+          <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Self-Love Ritual Set')">Add to Cart — $115</button>
+        </div>
+      </div>
+
+      <!-- Product 8 -->
+      <div class="product-card" data-type="bracelet" data-metal="copper" data-stone="carnelian" data-price="38" data-new="false" onclick="openModal(7)">
+        <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+        <div class="product-image">
+          <span class="img-placeholder">🧡</span>
+          <div class="quick-view">Quick View</div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">Bracelet</div>
+          <div class="product-name">Courage Bead Wrap</div>
+          <div class="product-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">☆</span>
+            <span class="star-count">(47)</span>
+          </div>
+          <div class="product-story">Carnelian beads on copper wire — for the days you need to remember you've survived harder things.</div>
+          <div class="product-meta">
+            <span class="product-price">$38</span>
+            <div class="product-options">
+              <span class="option-dot" style="background:#D4724E;" title="Copper"></span>
+            </div>
+          </div>
+          <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Courage Bead Wrap')">Add to Cart — $38</button>
+        </div>
+      </div>
+
+      <!-- Product 9 -->
+      <div class="product-card" data-type="pendant" data-metal="gold" data-stone="moonstone" data-price="78" data-new="true" onclick="openModal(8)">
+        <span class="product-badge badge-new">New</span>
+        <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+        <div class="product-image">
+          <span class="img-placeholder">🌕</span>
+          <div class="quick-view">Quick View</div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">Pendant</div>
+          <div class="product-name">Full Moon Amulet</div>
+          <div class="product-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="star-count">(18)</span>
+          </div>
+          <div class="product-story">Rainbow moonstone in gold-filled setting — for honoring your cycles and trusting divine timing.</div>
+          <div class="product-meta">
+            <span class="product-price">$78</span>
+            <div class="product-options">
+              <span class="option-dot" style="background:#FFD700;" title="Gold Filled"></span>
+            </div>
+          </div>
+          <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Full Moon Amulet')">Add to Cart — $78</button>
+        </div>
+      </div>
+
+      <!-- Product 10 -->
+      <div class="product-card" data-type="bracelet" data-metal="silver" data-stone="tourmaline" data-price="45" data-new="false" onclick="openModal(9)">
+        <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+        <div class="product-image">
+          <span class="img-placeholder">🖤</span>
+          <div class="quick-view">Quick View</div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">Bracelet</div>
+          <div class="product-name">Empath Shield Band</div>
+          <div class="product-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="star-count">(82)</span>
+          </div>
+          <div class="product-story">Black tourmaline chips on sterling — your energetic boundary in wearable form.</div>
+          <div class="product-meta">
+            <span class="product-price">$45</span>
+            <div class="product-options">
+              <span class="option-dot" style="background:#C0C0C0;" title="Sterling Silver"></span>
+            </div>
+          </div>
+          <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Empath Shield Band')">Add to Cart — $45</button>
+        </div>
+      </div>
+
+      <!-- Product 11 -->
+      <div class="product-card" data-type="set" data-metal="gold copper" data-stone="labradorite moonstone" data-price="135" data-new="true" onclick="openModal(10)">
+        <span class="product-badge badge-new">New</span>
+        <button class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+        <div class="product-image">
+          <span class="img-placeholder">🌌</span>
+          <div class="quick-view">Quick View</div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">Curated Set</div>
+          <div class="product-name">Cosmic Awakening Bundle</div>
+          <div class="product-stars">
+            <span class="star">★</span
+</body>
+</html>

@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soul Whispers — Anonymous Confessions Wall | EVOLVE</title>
+  <meta name="description" content="A safe, anonymous space to share your secrets and read others' confessions. You are not alone in what you carry.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2A9D8F;
+      --secondary: #FFFFFF;
+      --accent: #C8956C;
+      --font: 'DM Sans', 'Nunito', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font); line-height: 1.6; color: #333; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    a { color: var(--primary); text-decoration: none; }
+    nav { background: var(--primary); padding: 1rem; position: sticky; top: 0; z-index: 100; }
+    nav .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    .nav-brand { color: white; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.5px; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+    nav a { color: white; margin-right: 1.5rem; font-size: 0.95rem; transition: opacity 0.2s; }
+    nav a:hover { opacity: 0.8; }
+    footer { background: #333; color: white; padding: 2rem; text-align: center; }
+    footer p { font-size: 0.9rem; opacity: 0.9; }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, #1a7a6e 0%, #2A9D8F 40%, #3db8a9 100%);
+      color: white;
+      padding: 4rem 0 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+      animation: shimmer 8s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(5%, 5%); }
+    }
+    .hero-section h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+    .hero-section .whisper-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .hero-section p {
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.92;
+      line-height: 1.7;
+      position: relative;
+    }
+    .hero-section .safety-note {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      opacity: 0.75;
+      font-style: italic;
+      position: relative;
+    }
+
+    /* Section Styles */
+    .section-title {
+      text-align: center;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: #777;
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Confession of the Week */
+    .cotw-section {
+      padding: 4rem 0;
+      background: #faf9f7;
+    }
+    .cotw-card {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 40px rgba(42, 157, 143, 0.1);
+      border: 2px solid var(--accent);
+      position: relative;
+      text-align: center;
+    }
+    .cotw-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+    .cotw-card .quote-mark {
+      font-size: 4rem;
+      color: var(--accent);
+      line-height: 1;
+      opacity: 0.4;
+      font-family: Georgia, serif;
+    }
+    .cotw-card .confession-text {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #444;
+      font-style: italic;
+      margin: 1rem 0 1.5rem;
+      padding: 0 1rem;
+    }
+    .cotw-card .anon-label {
+      font-size: 0.85rem;
+      color: #999;
+      font-weight: 500;
+    }
+    .cotw-card .heart-divider {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    /* Confession Wall Feed */
+    .wall-section {
+      padding: 4rem 0;
+    }
+    .confession-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .confession-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      border-left: 4px solid var(--primary);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+    .confession-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+    }
+    .confession-card:nth-child(even) {
+      border-left-color: var(--accent);
+    }
+    .confession-card:nth-child(3n) {
+      border-left-color: #7B68AE;
+    }
+    .confession-card .card-number {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #bbb;
+      margin-bottom: 0.75rem;
+    }
+    .confession-card .card-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #555;
+    }
+    .confession-card .card-footer {
+      margin-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+    .confession-card .card-footer .anon {
+      font-style: italic;
+    }
+    .confession-card .card-footer .date {
+      font-weight: 500;
+    }
+    .load-more-wrapper {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+    .load-more-btn {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: var(--font);
+    }
+    .load-more-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Submit Form */
+    .submit-section {
+      padding: 4rem 0;
+      background: linear-gradient(180deg, #f0faf8 0%, #faf9f7 100%);
+    }
+    .submit-form-wrapper {
+      max-width: 650px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+    }
+    .submit-form-wrapper .form-intro {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .submit-form-wrapper .form-intro .lock-icon {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+    .form-group textarea {
+      width: 100%;
+      min-height: 160px;
+      padding: 1rem;
+      border: 2px solid #e8e8e8;
+      border-radius: 12px;
+      font-family: var(--font);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #444;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .form-group textarea::placeholder {
+      color: #bbb;
+      font-style: italic;
+    }
+    .char-count {
+      text-align: right;
+      font-size: 0.8rem;
+      color: #bbb;
+      margin-top: 0.35rem;
+    }
+    .form-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.5;
+    }
+    .form-consent input[type="checkbox"] {
+      margin-top: 0.2rem;
+      accent-color: var(--primary);
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .submit-btn {
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .submit-btn:hover {
+      background: #238b7e;
+      transform: translateY(-1px);
+    }
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+    .form-privacy-note {
+      text-align: center;
+      margin-top: 1.25rem;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+    .form-privacy-note span {
+      color: var(--primary);
+    }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+    .form-success .success-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .form-success h3 {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .form-success p {
+      color: #777;
+      font-size: 0.95rem;
+    }
+
+    /* Safety & Crisis Resources */
+    .safety-section {
+      padding: 3.5rem 0;
+      background: #fff;
+    }
+    .safety-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #fef9f5 0%, #fff5ee 100%);
+      border-radius: 20px;
+      padding: 2.5rem;
+      border: 1px solid rgba(200, 149, 108, 0.3);
+    }
+    .safety-card h2 {
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .safety-card .safety-intro {
+      text-align: center;
+      color: #777;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .crisis-resources {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+    .crisis-item {
+      background: white;
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    .crisis-item .crisis-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .crisis-item h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #444;
+      margin-bottom: 0.35rem;
+    }
+    .crisis-item .crisis-number {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .crisis-item .crisis-desc {
+      font-size: 0.8rem;
+      color: #999;
+      margin-top: 0.25rem;
+    }
+    .safety-card .gentle-reminder {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(200, 149, 108, 0.2);
+      font-size: 0.85rem;
+      color: #999;
+      font-style: italic;
+      line-height: 1.7;
+    }
+    .safety-card .gentle-reminder a {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Community Reassurance Banner */
+    .reassurance-banner {
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #2A9D8F 0%, #1a7a6e 100%);
+      color: white;
+      text-align: center;
+    }
+    .reassurance-banner .banner-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .reassurance-banner h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .reassurance-banner p {
+      max-width: 600px;
+      margin: 0 auto 0.75rem;
+      font-size: 1.05rem;
+      opacity: 0.92;
+      line-height: 1.7;
+    }
+    .reassurance-banner .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .reassurance-banner .stat-item {
+      text-align: center;
+    }
+    .reassurance-banner .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      display: block;
+    }
+    .reassurance-banner .stat-label {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .reassurance-banner .cta-links {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .reassurance-banner .cta-links a {
+      color: white;
+      border: 2px solid rgba(255,255,255,0.4);
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .reassurance-banner .cta-links a:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.7);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav .container {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .nav-links {
+        justify-content: center;
+      }
+      nav a {
+        margin-right: 0.75rem;
+        font-size: 0.85rem;
+      }
+      .hero-section {
+        padding: 3rem 0 2.5rem;
+      }
+      .hero-section h1 {
+        font-size: 1.85rem;
+      }
+      .hero-section p {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+      .cotw-card {
+        padding: 1.75rem;
+      }
+      .cotw-card .confession-text {
+        font-size: 1.05rem;
+        padding: 0;
+      }
+      .confession-grid {
+        grid-template-columns: 1fr;
+      }
+      .submit-form-wrapper {
+        padding: 1.75rem;
+      }
+      .safety-card {
+        padding: 1.75rem;
+      }
+      .crisis-resources {
+        grid-template-columns: 1fr;
+      }
+      .reassurance-banner h2 {
+        font-size: 1.4rem;
+      }
+      .reassurance-banner .stats-row {
+        gap: 1.5rem;
+      }
+      .section-title {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links {
+        gap: 0.15rem;
+      }
+      nav a {
+        margin-right: 0.5rem;
+        font-size: 0.78rem;
+      }
+      .hero-section h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-brand">evolve-by-rocks2rings</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="weekly-wisdom.html">Weekly Wisdom</a>
+      <a href="confessions.html">Soul Whispers</a>
+      <a href="gentle-sos.html">Gentle SOS</a>
+      <a href="astrology.html">Astrology</a>
+      <a href="crystals.html">Crystal Lab</a>
+      <a href="reels.html">Reels</a>
+      <a href="shop.html">Shop</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <span class="whisper-icon">🕊️</span>
+    <h1>Soul Whispers</h1>
+    <p>A safe, anonymous space to lay down what you carry. No names. No judgment. No replies. Just the quiet relief of being heard.</p>
+    <p class="safety-note">🔒 Every whisper is anonymous. We never collect names, emails, or IP addresses.</p>
+  </div>
+</section>
+
+<!-- Confession of the Week -->
+<section class="cotw-section" id="confession-of-the-week">
+  <div class="container">
+    <h2 class="section-title">Confession of the Week</h2>
+    <p class="section-subtitle">One whisper, chosen gently, to remind us we're not alone</p>
+    <div class="cotw-card">
+      <span class="cotw-badge">✨ Featured Whisper</span>
+      <div class="quote-mark">"</div>
+      <p class="confession-text">I smile at everyone all day long, but when I get home and close the door, I sit in the dark for twenty minutes before I can move. Nobody knows. I don't even know how to ask for help because I've been the strong one for so long that I've forgotten what it feels like to be held.</p>
+      <p class="anon-label">— Anonymous Soul</p>
+      <div class="heart-divider">♡</div>
+    </div>
+  </div>
+</section>
+
+<!-- Confession Wall Feed -->
+<section class="wall-section" id="confession-wall-feed">
+  <div class="container">
+    <h2 class="section-title">The Whisper Wall</h2>
+    <p class="section-subtitle">Real words from real hearts — read gently</p>
+    <div class="confession-grid">
+
+      <div class="confession-card">
+        <div class="card-number">Whisper #147</div>
+        <p class="card-text">I pretend I'm over it, but I still check their social media every single night. I hate that I care this much about someone who forgot me so easily.</p>
+        <div class="card-footer">
+          <span class="anon">— Anonymous</span>
+          <span class="date">Jun 2026</span>
+        </div>
+      </div>
+
+      <div class="confession-card">
+        <div class="card-number">Whisper #146</div>
+        <p class="card-text">I told my therapist I was fine last week. I wasn't fine. I just didn't want to cry again. I'm so tired of crying.</p>
+        <div class="card-footer">
+          <span class="anon">— Anonymous</span>
+          <span class="date">Jun 2026</span>
+        </div>
+      </div>
+
+      <div class="confession-card">
+        <div class="card-number">Whisper #145</div>
+        <p class="card-text">My mother never told me she was proud of me. I'm 34 and I still wait for it. I've built my whole life trying to earn words she'll never say.</p>
+        <div class="card-footer">
+          <span class="anon">— Anonymous</span>
+          <span class="date">Jun 2026</span>
+        </div>
+      </div>
+
+      <div class="confession-card">
+        <div class="card-number">Whisper #144</div>
+        <p class="card-text">I'm jealous of people who have a person to call when something good happens. I have no one. When I got the promotion, I celebrated alone with takeout and cried into my noodles.</p>
+        <div class="card-footer">
+          <span class="anon">— Anonymous</span>
+          <span class="date">May 2026</span>
+        </div>
+      </div>
+
+      <div class="confession-card">
+        <div class="card-number">Whisper #143</div>
+        <p class="card-text">I forgave him. Not for him — for me. But some days the anger comes back like a wave and I have to forgive all over again. Healing isn't linear and I wish someone had told me that sooner.</p>
+        <div class="card-footer">
+          <span class="anon">— Anonymous</span>
+          <span class="date">May 2026</span>
+        </div>
+      </div>
+
+      <div class="confession-card">
+        <div class="card-number">Whisper #142</div>
+        <p class="card-text">I talk to my crystals more than I talk to people. They don't judge me. They don't leave. Maybe that's sad, but honestly? It's the safest I've felt in years.</p>
+        <div class="card-footer">
+          <span class="anon">— Anonymous</span>
+          <span class="date">May 2026</span>
+        </div>
+      </div>
+
+      <div class="confession-card">
+        <div class="card-number">Whisper #141</div>
+        <p class="card-text">I'm scared that I'll never feel at home in my own body. Some days I look in the mirror and I don't recognize the person staring back. I just want to feel like me again.</p>
+        <div class="card-footer">
+          <span class="anon">— Anonymous</span>
+          <span class="date">May 2026</span>
+        </div>
+      </div>
+
+      <div class="confession-card">
+        <div class="card-number">Whisper #140</div>
+        <p class="card-text">Today I set a boundary for the first time in my life. My hands were shaking the entire time. But I did it. I actually did it.</p>
+        <div class="card-footer">
+          <span class="anon">— Anonymous</span>
+          <span class="date">May 2026</span>
+        </div>
+      </div>
+
+      <div class="confession-card">
+        <div class="card-number">Whisper #139</div>
+        <p class="card-text">I lost my baby at 11 weeks. Nobody talks about it. I carry this grief like a secret and it's so heavy. I just needed somewhere to say: you were real, and you were loved.</p>
+        <div class="card-footer">
+          <span class="anon">— Anonymous</span>
+          <span class="date">Apr 2026</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="load-more-wrapper">
+      <button class="load-more-btn" id="loadMoreBtn">Read More Whispers ↓</button>
+    </div>
+  </div>
+</section>
+
+<!-- Anonymous Submit Form -->
+<section class="submit-section" id="anonymous-submit-form">
+  <div class="container">
+    <h2 class="section-title">Share Your Whisper</h2>
+    <p class="section-subtitle">Let it out. We'll hold it gently.</p>
+    <div class="submit-form-wrapper">
+      <div class="form-intro">
+        <span class="lock-icon">🔐</span>
+        This form is completely anonymous. We don't collect your name, email, location, or any identifying information. Your whisper will be reviewed with care before being added to the wall.
+      </div>
+
+      <form id="whisperForm">
+        <div class="form-group">
+          <label for="confession">Your whisper...</label>
+          <textarea id="confession" name="confession" maxlength="1000" placeholder="Write what's on your heart. Take your time. There's no rush here..."></textarea>
+          <div class="char-count"><span id="charCount">0</span> / 1000</div>
+        </div>
+
+        <div class="form-consent">
+          <input type="checkbox" id="consent" name="consent" required>
+          <label for="consent">I understand this will be shared anonymously on the Soul Whispers wall. I confirm this does not contain identifying information about myself or others.</label>
+        </div>
+
+        <button type="submit" class="submit-btn">Send My Whisper 🕊️</button>
+
+        <p class="form-privacy-note">🔒 <span>100% anonymous</span> — no tracking, no cookies, no data stored. Your secret is safe.</p>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">🕊️</div>
+        <h3>Your whisper has been received</h3>
+        <p>Thank you for trusting this space. Your words will be held with care. If your whisper is selected for the wall, it will appear anonymously within a few days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Safety & Crisis Resources -->
+<section class="safety-section" id="safety-and-crisis-resources">
+  <div class="container">
+    <div class="safety-card">
+      <h2>🤍 If You're in Crisis, Please Reach Out</h2>
+      <p class="safety-intro">Soul Whispers is a space for gentle release — but it's not a substitute for professional support. If you or someone you know is in immediate danger or emotional crisis, please contact one of these resources.</p>
+
+      <div class="crisis-resources">
+        <div class="crisis-item">
+          <div class="crisis-icon">📞</div>
+          <h4>Suicide & Crisis Lifeline</h4>
+          <div class="crisis-number">988</div>
+          <p class="crisis-desc">Call or text, 24/7</p>
+        </div>
+        <div class="crisis-item">
+          <div class="crisis-icon">💬</div>
+          <h4>Crisis Text Line</h4>
+          <div class="crisis-number">Text HOME to 741741</div>
+          <p class="crisis-desc">Free, 24/7 support</p>
+        </div>
+        <div class="crisis-item">
+          <div class="crisis-icon">🌍</div>
+          <h4>International Association for Suicide Prevention</h4>
+          <div class="crisis-number"><a href="https://www.iasp.info/resources/Crisis_Centres/" target="_blank" rel="noopener">Find Your Country →</a></div>
+          <p class="crisis-desc">Global crisis centers</p>
+        </div>
+      </div>
+
+      <p class="gentle-reminder">You are not a burden. Asking for help is one of the bravest things you can do. 💛<br>Need something gentler? Visit our <a href="gentle-sos.html">Gentle SOS</a> page for grounding tools and soft support.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Community Reassurance Banner -->
+<section class="reassurance-banner" id="community-reassurance-banner">
+  <div class="container">
+    <div class="banner-icon">🤝</div>
+    <h2>You Are Not Alone in What You Carry</h2>
+    <p>Every whisper on this wall is proof that someone else has felt what you feel. You don't have to carry it perfectly. You just have to keep going — gently.</p>
+    <p>This community was built for sensitive, spiritual women who are tired of pretending they're okay. Here, you can just be.</p>
+
+    <div class="stats-row">
+      <div class="stat-item">
+        <span class="stat-number">2,400+</span>
+        <span class="stat-label">Whispers Shared</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Anonymous</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">0</span>
+        <span class="stat-label">Judgment</span>
+      </div>
+    </div>
+
+    <div class="cta-links">
+      <a href="index.html">← Back to Home</a>
+      <a href="weekly-wisdom.html">Read This Week's Wisdom</a>
+      <a href="gentle-sos.html">Gentle SOS Tools</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 EVOLVE by Rocks2Rings — Sandra. You are not alone.</p>
+  </div>
+</footer>
+
+<script>
+  // Character counter
+  const textarea = document.getElementById('confession');
+  const charCount = document.getElementById('charCount');
+  textarea.addEventListener('input', function() {
+    charCount.textContent = this.value.length;
+  });
+
+  // Form submission
+  const form = document.getElementById('whisperForm');
+  const formSuccess = document.getElementById('formSuccess');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (textarea.value.trim().length < 10) {
+      alert('Please write at least a few words before submitting your whisper. 💛');
+      return;
+    }
+    form.style.display = 'none';
+    formSuccess.style.display = 'block';
+  });
+
+  // Load more (simulated)
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  let loaded = false;
+  loadMoreBtn.addEventListener('click', function() {
+    if (!loaded) {
+      const grid = document.querySelector('.confession-grid');
+      const moreWhispers = [
+        { num: 138, text: "I haven't told anyone that I've been sleeping with the lights on since the breakup. The dark feels too empty without someone beside me.", date: "Apr 2026" },
+        { num: 137, text: "I'm the friend everyone comes to for advice, but I have no idea what I'm doing with my own life. I feel like a fraud.", date: "Apr 2026" },
+        { num: 136, text: "Some days the only thing that keeps me going is my morning coffee ritual. It's small, but it's mine, and it's enough.", date: "Apr 2026" },
+        { num: 135, text: "I read the Weekly Wisdom post every Monday and sometimes it's the only kind thing anyone says to me all week. Thank you, Sandra.", date: "Mar 2026" }
+      ];
+      const colors = ['var(--primary)', 'var(--accent)', '#7B68AE', 'var(--primary)'];
+      moreWhispers.forEach((w, i) => {
+        const card = document.createElement('div');
+        card.className = 'confession-card';
+        card.style.borderLeftColor = colors[i % colors.length];
+        card.innerHTML = `
+          <div class="card-number">Whisper #${w.num}</div>
+          <p class="card-text">${w.text}</p>
+          <div class="card-footer">
+            <span class="anon">— Anonymous</span>
+            <span class="date">${w.date}</span>
+          </div>
+        `;
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        grid.appendChild(card);
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 100 * (i + 1));
+      });
+      loaded = true;
+      loadMoreBtn.textContent = 'All whispers loaded 🕊️';
+      loadMoreBtn.style.opacity = '0.5';
+      loadMoreBtn.style.cursor = 'default';
+    }
+  });
+</script>
+
+</body>
+</html>

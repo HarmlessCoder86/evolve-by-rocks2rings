@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmic Updates — Astrology Events & Guidance | EVOLVE</title>
+  <meta name="description" content="Sandra's curated astrological event updates with dates, meanings, and gentle guidance for sensitive, spiritual women. Stay aligned with the cosmos.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2A9D8F;
+      --secondary: #FFFFFF;
+      --accent: #C8956C;
+      --font: 'DM Sans', 'Nunito', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font); line-height: 1.6; color: #333; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    a { color: var(--primary); text-decoration: none; }
+    nav { background: var(--primary); padding: 1rem; position: sticky; top: 0; z-index: 1000; }
+    nav .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    nav .nav-brand { color: white; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.5px; }
+    nav .nav-links { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+    nav a { color: white; margin-right: 1.5rem; font-size: 0.95rem; transition: opacity 0.3s; }
+    nav a:hover { opacity: 0.8; }
+    footer { background: #333; color: white; padding: 2rem; text-align: center; }
+    footer p { font-size: 0.9rem; opacity: 0.9; }
+
+    /* Hero */
+    .astrology-hero {
+      background: linear-gradient(135deg, #0f1b2d 0%, #1a2a4a 30%, #2A9D8F 70%, #1a2a4a 100%);
+      color: white;
+      padding: 5rem 1rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .astrology-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(2px 2px at 30% 60%, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.9), transparent),
+        radial-gradient(2px 2px at 70% 40%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 90% 80%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(2px 2px at 15% 85%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 45% 45%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(2px 2px at 80% 15%, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 60% 75%, rgba(255,255,255,0.5), transparent),
+        radial-gradient(2px 2px at 25% 35%, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 85% 55%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(2px 2px at 5% 50%, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 95% 30%, rgba(255,255,255,0.8), transparent),
+        radial-gradient(2px 2px at 40% 90%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 55% 5%, rgba(255,255,255,0.7), transparent);
+      animation: twinkle 4s ease-in-out infinite alternate;
+    }
+    @keyframes twinkle {
+      0% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+    .astrology-hero .container { position: relative; z-index: 1; }
+    .hero-moon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .astrology-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      letter-spacing: 1px;
+    }
+    .astrology-hero .subtitle {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(200,149,108,0.4);
+      color: white;
+    }
+
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .section-title h2 {
+      font-size: 2rem;
+      color: #1a2a4a;
+      margin-bottom: 0.5rem;
+    }
+    .section-title p {
+      color: #666;
+      max-width: 550px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+    .section-title .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      margin: 0.75rem auto;
+      border-radius: 2px;
+    }
+
+    /* Current Season Card */
+    .current-season {
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, #f0faf8 0%, #fdf6f0 100%);
+    }
+    .season-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      border-left: 5px solid var(--accent);
+      position: relative;
+      overflow: hidden;
+    }
+    .season-card::after {
+      content: '♋';
+      position: absolute;
+      top: -20px;
+      right: -10px;
+      font-size: 8rem;
+      opacity: 0.05;
+      color: var(--primary);
+    }
+    .season-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), #1a7a6f);
+      color: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+    .season-card h3 {
+      font-size: 1.6rem;
+      color: #1a2a4a;
+      margin-bottom: 0.5rem;
+    }
+    .season-dates {
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .season-card p {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .season-themes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .season-themes span {
+      background: #f0faf8;
+      color: var(--primary);
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Timeline */
+    .upcoming-events {
+      padding: 4rem 1rem;
+      background: white;
+    }
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 40px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary), var(--accent), var(--primary));
+      border-radius: 2px;
+    }
+    .timeline-event {
+      position: relative;
+      margin-bottom: 2.5rem;
+      background: white;
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid #f0f0f0;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .timeline-event:hover {
+      transform: translateX(5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    .timeline-event::before {
+      content: '';
+      position: absolute;
+      left: -33px;
+      top: 1.75rem;
+      width: 14px;
+      height: 14px;
+      background: var(--accent);
+      border: 3px solid white;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--accent);
+    }
+    .timeline-event.past::before {
+      background: #ccc;
+      box-shadow: 0 0 0 3px #ccc;
+    }
+    .timeline-event.past {
+      opacity: 0.6;
+    }
+    .event-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .event-icon {
+      font-size: 2rem;
+      margin-right: 0.75rem;
+    }
+    .event-title-group { flex: 1; min-width: 200px; }
+    .event-title-group h3 {
+      font-size: 1.2rem;
+      color: #1a2a4a;
+      margin-bottom: 0.25rem;
+    }
+    .event-date {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .event-type-badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .badge-new-moon { background: #1a2a4a; color: white; }
+    .badge-full-moon { background: #f5e6d3; color: #8a6d50; }
+    .badge-retrograde { background: #ffe0e0; color: #c44; }
+    .badge-eclipse { background: #e8d5f5; color: #7b3fa0; }
+    .badge-ingress { background: #d5f0e8; color: #2A9D8F; }
+    .badge-solstice { background: #fff3d5; color: #b8860b; }
+    .event-meaning {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .event-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .btn-calendar {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-calendar:hover {
+      background: #1a7a6f;
+      transform: translateY(-1px);
+      color: white;
+    }
+    .btn-journal {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: transparent;
+      color: var(--accent);
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 2px solid var(--accent);
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+    .btn-journal:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Event Detail Accordion */
+    .event-accordion {
+      padding: 4rem 1rem;
+      background: #fafbfc;
+    }
+    .accordion-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .accordion-item {
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+    .accordion-header {
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s;
+      user-select: none;
+    }
+    .accordion-header:hover {
+      background: #f8fffe;
+    }
+    .accordion-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .accordion-header h3 {
+      font-size: 1.05rem;
+      color: #1a2a4a;
+    }
+    .accordion-header .acc-icon {
+      font-size: 1.5rem;
+    }
+    .accordion-chevron {
+      font-size: 1.2rem;
+      color: var(--primary);
+      transition: transform 0.3s;
+    }
+    .accordion-item.active .accordion-chevron {
+      transform: rotate(180deg);
+    }
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .accordion-body-inner {
+      padding: 0 1.5rem 1.5rem;
+    }
+    .accordion-body-inner p {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+    }
+    .accordion-body-inner .ritual-tip {
+      background: linear-gradient(135deg, #f0faf8, #fdf6f0);
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      border-left: 3px solid var(--accent);
+      margin-top: 0.75rem;
+    }
+    .ritual-tip strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+    }
+    .ritual-tip p {
+      font-size: 0.9rem;
+      margin-bottom: 0 !important;
+    }
+
+    /* Add to Calendar CTA */
+    .calendar-cta {
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, #1a2a4a 0%, #2A9D8F 100%);
+      color: white;
+      text-align: center;
+    }
+    .calendar-cta h2 {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+    .calendar-cta p {
+      max-width: 550px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+      line-height: 1.8;
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .cta-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cta-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(200,149,108,0.4);
+      color: white;
+    }
+    .cta-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 2px solid rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .cta-btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: white;
+      color: white;
+    }
+
+    /* Cross-links */
+    .cross-links {
+      padding: 3rem 1rem;
+      background: white;
+    }
+    .cross-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .cross-link-card {
+      background: linear-gradient(135deg, #f0faf8, #fdf6f0);
+      border-radius: 14px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: #333;
+    }
+    .cross-link-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .cross-link-card .cl-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .cross-link-card h4 {
+      color: #1a2a4a;
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+    .cross-link-card p {
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    /* Archive */
+    .astrology-archive {
+      padding: 4rem 1rem;
+      background: #fafbfc;
+    }
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .archive-card {
+      background: white;
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      border: 1px solid #eee;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .archive-card:hover {
+      transform: translateY(-2px);
+    }
+    .archive-month {
+      font-size: 0.8rem;
+      color: var(--primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+    .archive-card h4 {
+      color: #1a2a4a;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+    .archive-card p {
+      font-size: 0.9rem;
+      color: #777;
+      line-height: 1.6;
+    }
+    .archive-events {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+    .archive-events span {
+      font-size: 0.75rem;
+      background: #f0f0f0;
+      padding: 0.2rem 0.6rem;
+      border-radius: 50px;
+      color: #666;
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #1a2a4a;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      z-index: 9999;
+      opacity: 0;
+      transition: transform 0.4s, opacity 0.4s;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav .container {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      nav .nav-links {
+        justify-content: center;
+      }
+      nav a {
+        margin-right: 0.75rem;
+        font-size: 0.85rem;
+      }
+      .astrology-hero h1 {
+        font-size: 2rem;
+      }
+      .astrology-hero .subtitle {
+        font-size: 1rem;
+      }
+      .hero-moon {
+        font-size: 3rem;
+      }
+      .season-card {
+        padding: 1.75rem;
+      }
+      .season-card h3 {
+        font-size: 1.3rem;
+      }
+      .timeline {
+        padding-left: 30px;
+      }
+      .timeline::before {
+        left: 10px;
+      }
+      .timeline-event::before {
+        left: -28px;
+        width: 12px;
+        height: 12px;
+      }
+      .timeline-event {
+        padding: 1.25rem;
+      }
+      .event-header {
+        flex-direction: column;
+      }
+      .calendar-cta h2 {
+        font-size: 1.6rem;
+      }
+      .cross-links-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 480px) {
+      .cross-links-grid {
+        grid-template-columns: 1fr;
+      }
+      .archive-grid {
+        grid-template-columns: 1fr;
+      }
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-brand">evolve-by-rocks2rings</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="weekly-wisdom.html">Weekly Wisdom</a>
+      <a href="confessions.html">Soul Whispers</a>
+      <a href="gentle-sos.html">Gentle SOS</a>
+      <a href="astrology.html">Astrology</a>
+      <a href="crystals.html">Crystal Lab</a>
+      <a href="reels.html">Reels</a>
+      <a href="shop.html">Shop</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Astrology Hero -->
+<section class="astrology-hero">
+  <div class="container">
+    <div class="hero-moon">🌙</div>
+    <h1>Cosmic Updates</h1>
+    <p class="subtitle">Gentle astrological guidance curated by Sandra — helping you move through each cosmic season with awareness, intention, and grace.</p>
+    <a href="#upcoming" class="hero-cta">See What's Coming ↓</a>
+  </div>
+</section>
+
+<!-- Current Season Card -->
+<section class="current-season">
+  <div class="container">
+    <div class="section-title">
+      <h2>Current Cosmic Season</h2>
+      <div class="divider"></div>
+      <p>A grounding overview of the energy surrounding us right now</p>
+    </div>
+    <div class="season-card">
+      <span class="season-badge">☀️ We Are In</span>
+      <h3>Cancer Season 2026</h3>
+      <p class="season-dates">June 21 – July 22, 2026</p>
+      <p>Welcome to Cancer season, dear one. This is a time of deep feeling, nurturing, and returning home — both literally and within yourself. The cosmic energy invites you to soften, to tend to your inner world, and to honor the emotions that rise without judgment.</p>
+      <p>If you've been running on empty, this season is your permission slip to rest. Let the moonlight guide you inward. Your sensitivity is not a weakness — it's your superpower.</p>
+      <div class="season-themes">
+        <span>🏠 Home & Roots</span>
+        <span>💧 Emotional Depth</span>
+        <span>🤱 Nurturing</span>
+        <span>🌊 Intuition</span>
+        <span>🛡️ Boundaries</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Upcoming Events Timeline -->
+<section class="upcoming-events" id="upcoming">
+  <div class="container">
+    <div class="section-title">
+      <h2>Upcoming Cosmic Events</h2>
+      <div class="divider"></div>
+      <p>Mark your calendar and prepare your heart for what the stars have in store</p>
+    </div>
+    <div class="timeline">
+
+      <!-- Event 1 -->
+      <div class="timeline-event">
+        <div class="event-header">
+          <div style="display:flex;align-items:flex-start;">
+            <span class="event-icon">🌑</span>
+            <div class="event-title-group">
+              <h3>New Moon in Cancer</h3>
+              <span class="event-date">📅 June 25, 2026 · 10:31 AM EST</span>
+            </div>
+          </div>
+          <span class="event-type-badge badge-new-moon">New Moon</span>
+        </div>
+        <p class="event-meaning">A powerful reset for your emotional world. This new moon invites you to plant seeds of self-care, set intentions around home and family, and honor what makes you feel safe. Journal about what "home" means to your soul right now.</p>
+        <div class="event-actions">
+          <button class="btn-calendar" onclick="addToCalendar('New Moon in Cancer', '2026-06-25', '10:31', 'A powerful reset for your emotional world. Plant seeds of self-care.')">📅 Add to Calendar</button>
+          <a href="weekly-wisdom.html" class="btn-journal">✍️ Journal Prompt</a>
+        </div>
+      </div>
+
+      <!-- Event 2 -->
+      <div class="timeline-event">
+        <div class="event-header">
+          <div style="display:flex;align-items:flex-start;">
+            <span class="event-icon">🌕</span>
+            <div class="event-title-group">
+              <h3>Full Moon in Capricorn</h3>
+              <span class="event-date">📅 July 10, 2026 · 4:37 PM EST</span>
+            </div>
+          </div>
+          <span class="event-type-badge badge-full-moon">Full Moon</span>
+        </div>
+        <p class="event-meaning">Illumination arrives in the realm of ambition and structure. This full moon asks: are your goals aligned with your soul's truth? Release what you've been building out of obligation rather than love. Let go of the "should" and embrace the "want."</p>
+        <div class="event-actions">
+          <button class="btn-calendar" onclick="addToCalendar('Full Moon in Capricorn', '2026-07-10', '16:37', 'Release what you have been building out of obligation. Embrace your truth.')">📅 Add to Calendar</button>
+          <a href="confessions.html" class="btn-journal">💫 Share a Whisper</a>
+        </div>
+      </div>
+
+      <!-- Event 3 -->
+      <div class="timeline-event">
+        <div class="event-header">
+          <div style="display:flex;align-items:flex-start;">
+            <span class="event-icon">🔄</span>
+            <div class="event-title-group">
+              <h3>Mercury Retrograde in Leo</h3>
+              <span class="event-date">📅 July 18 – August 11, 2026</span>
+            </div>
+          </div>
+          <span class="event-type-badge badge-retrograde">Retrograde</span>
+        </div>
+        <p class="event-meaning">Mercury slows down in fiery Leo, asking you to revisit how you express yourself and where you seek validation. Miscommunications may arise — breathe before you respond. This is a beautiful time to reconnect with creative projects you set aside.</p>
+        <div class="event-actions">
+          <button class="btn-calendar" onclick="addToCalendar('Mercury Retrograde in Leo Begins', '2026-07-18', '00:00', 'Mercury retrograde in Leo. Revisit self-expression and creative projects.')">📅 Add to Calendar</button>
+          <a href="gentle-sos.html" class="btn-journal">🫂 Need Support?</a>
+        </div>
+      </div>
+
+      <!-- Event 4 -->
+      <div class="timeline-event">
+        <div class="event-header">
+          <div style="display:flex;align-items:flex-start;">
+            <span class="event-icon">☀️</span>
+            <div class="event-title-group">
+              <h3>Leo Season Begins</h3>
+              <span class="event-date">📅 July 22, 2026</span>
+            </div>
+          </div>
+          <span class="event-type-badge badge-ingress">Ingress</span>
+        </div>
+        <p class="event-meaning">The Sun moves into Leo, igniting your inner fire and desire to be seen. This season celebrates joy, creativity, and the courage to take up space. Even if you're an introvert, Leo season whispers: your light matters. Let it shine, gently.</p>
+        <div class="event-actions">
+          <button class="btn-calendar" onclick="addToCalendar('Leo Season Begins', '2026-07-22', '00:00', 'The Sun enters Leo. Celebrate joy, creativity, and your inner light.')">📅 Add to Calendar</button>
+        </div>
+      </div>
+
+      <!-- Event 5 -->
+      <div class="timeline-event">
+        <div class="event-header">
+          <div style="display:flex;align-items:flex-start;">
+            <span class="event-icon">🌑</span>
+            <div class="event-title-group">
+              <h3>New Moon in Leo</h3>
+              <span class="event-date">📅 July 25, 2026 · 2:12 AM EST</span>
+            </div>
+          </div>
+          <span class="event-type-badge badge-new-moon">New Moon</span>
+        </div>
+        <p class="event-meaning">Set bold intentions around self-expression, romance, and creative pursuits. This new moon during Mercury retrograde is especially potent for revisiting old passions. What did you love doing before the world told you to be practical?</p>
+        <div class="event-actions">
+          <button class="btn-calendar" onclick="addToCalendar('New Moon in Leo', '2026-07-25', '02:12', 'Set bold intentions around self-expression and creative pursuits.')">📅 Add to Calendar</button>
+          <a href="weekly-wisdom.html" class="btn-journal">✍️ Journal Prompt</a>
+        </div>
+      </div>
+
+      <!-- Event 6 -->
+      <div class="timeline-event">
+        <div class="event-header">
+          <div style="display:flex;align-items:flex-start;">
+            <span class="event-icon">🌕</span>
+            <div class="event-title-group">
+              <h3>Lunar Eclipse in Aquarius</h3>
+              <span class="event-date">📅 August 8, 2026 · 11:46 PM EST</span>
+            </div>
+          </div>
+          <span class="event-type-badge badge-eclipse">Eclipse</span>
+        </div>
+        <p class="event-meaning">Eclipses are cosmic turning points. This lunar eclipse in Aquarius illuminates your relationship with community, individuality, and the future you're building. Something may end so something truer can begin. Trust the process, even when it feels uncertain.</p>
+        <div class="event-actions">
+          <button class="btn-calendar" onclick="addToCalendar('Lunar Eclipse in Aquarius', '2026-08-08', '23:46', 'A cosmic turning point. Trust the process of release and renewal.')">📅 Add to Calendar</button>
+          <a href="crystals.html" class="btn-journal">💎 Eclipse Crystals</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Event Detail Accordion -->
+<section class="event-accordion">
+  <div class="container">
+    <div class="section-title">
+      <h2>Deeper Cosmic Insights</h2>
+      <div class="divider"></div>
+      <p>Tap into Sandra's guidance for navigating each transit with intention</p>
+    </div>
+    <div class="accordion-container">
+
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="accordion-header-left">
+            <span class="acc-icon">🌑</span>
+            <h3>How to Work with New Moons</h3>
+          </div>
+          <span class="accordion-chevron">▼</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>New moons are cosmic blank pages. They represent beginnings, fresh energy, and the quiet power of intention. Unlike full moons (which are about release), new moons invite you to plant seeds — emotionally, spiritually, and practically.</p>
+            <p>The sign the new moon falls in colors the energy. A new moon in Cancer, for example, is perfect for intentions around home, family, and emotional healing. A new moon in Leo calls for creative and self-expression goals.</p>
+            <div class="ritual-tip">
+              <strong>🕯️ Sandra's New Moon Ritual</strong>
+              <p>Light a candle, hold your favorite crystal, and write 3–5 intentions on paper. Speak them aloud. Fold the paper and place it somewhere sacred. Revisit at the full moon to see what's bloomed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="accordion-header-left">
+            <span class="acc-icon">🌕</span>
+            <h3>How to Work with Full Moons</h3>
+          </div>
+          <span class="accordion-chevron">▼</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>Full moons illuminate what's been hidden. They bring emotions to the surface, reveal truths, and create space for release. If you feel extra sensitive around full moons — you're not imagining it. The moon's pull on water affects us deeply, and we are mostly water.</p>
+            <p>This is the time to let go of what no longer serves you: old beliefs, stale relationships, habits that drain your energy. Full moons are not about starting — they're about completing and clearing.</p>
+            <div class="ritual-tip">
+              <strong>🌊 Sandra's Full Moon Ritual</strong>
+              <p>Write down what you're ready to release. Read it aloud under the moonlight (or near a window). Then safely burn or tear the paper. Take a salt bath or shower to cleanse your energy. You are free.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="accordion-header-left">
+            <span class="acc-icon">🔄</span>
+            <h3>Surviving Mercury Retrograde (Gently)</h3>
+          </div>
+          <span class="accordion-chevron">▼</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>Mercury retrograde gets a bad reputation, but it's actually a gift in disguise. When Mercury appears to move backward, it's an invitation to slow down, review, and reconnect. The "re-" prefix is your guide: reflect, revisit, revise, rest.</p>
+            <p>Yes, technology may glitch. Miscommunications may happen. Old exes may text. But instead of fearing this transit, use it as a cosmic pause button. Double-check important messages, back up your files, and give yourself grace when things don't go as planned.</p>
+            <div class="ritual-tip">
+              <strong>💫 Sandra's Retrograde Survival Kit</strong>
+              <p>Keep a blue lace agate or amazonite nearby for clear communication. Journal daily — even just 3 sentences. Avoid signing major contracts if possible. And remember: this too shall pass (in about 3 weeks).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="accordion-header-left">
+            <span class="acc-icon">🌒</span>
+            <h3>Understanding Eclipses</h3>
+          </div>
+          <span class="accordion-chevron">▼</span>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <p>Eclipses are the universe's way of fast-tracking your growth. They bring sudden shifts, revelations, and turning points that can feel intense but are always leading you toward alignment. Think of eclipses as cosmic course corrections.</p>
+            <p>Solar eclipses (new moon) open unexpected doors. Lunar eclipses (full moon) close chapters that have run their course. The effects of an eclipse can unfold over 6 months, so be patient with yourself during eclipse season.</p>
+            <div class="ritual-tip">
+              <strong>🌿 Sandra's Eclipse Wisdom</strong>
+              <p>Don't manifest during eclipses — instead, surrender. Let the universe show you what needs to change. Rest more than usual. Drink extra water. Hold labradorite for protection and trust. The path is being cleared for you.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Add to Calendar CTA -->
+<section class="calendar-cta">
+  <div class="container">
+    <h2>✨ Never Miss a Cosmic Moment</h2>
+    <p>Download all upcoming events to your calendar so you can prepare your heart, your crystals, and your journal before each transit arrives.</p>
+    <div class="cta-buttons">
+      <button class="cta-btn-primary" onclick="downloadAllEvents()">📅 Download All Events (.ics)</button>
+      <a href="weekly-wisdom.html" class="cta-btn-secondary">📖 Read This Week's Wisdom</a>
+    </div>
+  </div>
+</section>
+
+<!-- Cross-links -->
+<section class="cross-links">
+  <div class="container">
+    <div class="section-title">
+      <h2>Continue Your Journey</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="cross-links-grid">
+      <a href="crystals.html" class="cross-link-card">
+        <div class="cl-icon">💎</div>
+        <h4>Crystal Lab</h4>
+        <p>Find the perfect crystal companion for each transit</p>
+      </a>
+      <a href="weekly-wisdom.html" class="cross-link-card">
+        <div class="cl-icon">📖</div>
+        <h4>Weekly Wisdom</h4>
+        <p>Sandra's weekly reflections to ground your spirit</p>
+      </a>
+      <a href="confessions.html" class="cross-link-card">
+        <div class="cl-icon">🤍</div>
+        <h4>Soul Whispers</h4>
+        <p>Share what's on your heart, anonymously</p>
+      </a>
+      <a href="gentle-sos.html" class="cross-link-card">
+        <div class="cl-icon">🫂</div>
+        <h4>Gentle SOS</h4>
+        <p>Grounding tools for when the cosmos feel heavy</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Astrology Archive -->
+<section class="astrology-archive">
+  <div class="container">
+    <div class="section-title">
+      <h2>Cosmic Archive</h2>
+      <div class="divider"></div>
+      <p>Look back on past seasons and the wisdom they carried</p>
+    </div>
+    <div class="archive-grid">
+      <div class="archive-card">
+        <div class="archive-month">May 2026</div>
+        <h4>Gemini Season</h4>
+        <p>A season of curiosity, connection, and finding your voice. Mercury was home and communication flowed.</p>
+        <div class="archive-events">
+          <span>🌑 New Moon Gemini</span>
+          <span>🌕 Full Moon Sagittarius</span>
+        </div>
+      </div>
+      <div class="archive-card">
+        <div class="archive-month">April 2026</div>
+        <h4>Taurus Season</h4>
+        <p>Grounding, sensual energy invited us to slow down, savor beauty, and reconnect with our bodies and the earth.</p>
+        <div class="archive-events">
+          <span>🌑 New Moon Taurus</span>
+          <span>🌕 Full Moon Scorpio</span>
+          <span>🔄 Pluto Station</span>
+        </div>
+      </div>
+      <div class="archive-card">
+        <div class="archive-month">March 2026</div>
+        <h4>Aries Season & Equinox</h4>
+        <p>The astrological new year! A fiery reset that asked us to be brave, take initiative, and honor our desires.</p>
+        <div class="archive-events">
+          <span>☀️ Spring Equinox</span>
+          <span>🌑 New Moon Aries</span>
+          <span>🌕 Lunar Eclipse Libra</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="container">
+    <p>© 2026 EVOLVE by Rocks2Rings — Sandra. You are not alone.</p>
+  </div>
+</footer>
+
+<script>
+  // Accordion
+  function toggleAccordion(header) {
+    const item = header.parentElement;
+    const body = item.querySelector('.accordion-body');
+    const isActive = item.classList.contains('active');
+
+    // Close all
+    document.querySelectorAll('.accordion-item').forEach(i => {
+      i.classList.remove('active');
+      i.querySelector('.accordion-body').style.maxHeight = null;
+    });
+
+    // Open clicked if it wasn't active
+    if (!isActive) {
+      item.classList.add('active');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+  }
+
+  // Toast notification
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3000);
+  }
+
+  // Add single event to calendar (generates .ics file)
+  function addToCalendar(title, date, time, description) {
+    const dtParts = date.split('-');
+    const timeParts = time.split(':');
+    const year = dtParts[0];
+    const month = dtParts[1];
+    const day = dtParts[2];
+    const hour = timeParts[0].padStart(2, '0');
+    const minute = timeParts[1].padStart(2, '0');
+
+    const dtStart = `${year}${month}${day}T${hour}${minute}00`;
+    const endHour = String(parseInt(hour) + 1).padStart(2, '0');
+    const dtEnd = `${year}${month}${day}T${endHour}${minute}00`;
+
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//EVOLVE by Rocks2Rings//Cosmic Updates//EN',
+      'BEGIN:VEVENT',
+      `DTSTART:${dtStart}`,
+      `DTEND:${dtEnd}`,
+      `SUMMARY:✨ ${title}`,
+      `DESCRIPTION:${description.replace(/,/g, '\\,')}\\n\\nFrom EVOLVE by Rocks2Rings — Sandra`,
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].join('\r\n');
+
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `${title.replace(/\s+/g, '-').toLowerCase()}.ics`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    showToast(`📅 "${title}" added to your calendar!`);
+  }
+
+  // Download all events
+  function downloadAllEvents() {
+    const events = [
+      { title: 'New Moon in Cancer', date: '20260625', time: '103100', end: '113100', desc: 'A powerful reset for your emotional world. Plant seeds of self-care.' },
+      { title: 'Full Moon in Capricorn', date: '20260710', time: '163700', end: '173700', desc: 'Release what you have been building out of obligation. Embrace your truth.' },
+      { title: 'Mercury Retrograde in Leo Begins', date: '20260718', time: '000000', end: '010000', desc: 'Mercury retrograde in Leo. Revisit self-expression and creative projects.' },
+      { title: 'Leo Season Begins', date: '20260722', time: '000000', end: '010000', desc: 'The Sun enters Leo. Celebrate joy creativity and your inner light.' },
+      { title: 'New Moon in Leo', date: '20260725', time: '021200', end: '031200', desc: 'Set bold intentions around self-expression and creative pursuits.' },
+      { title: 'Lunar Eclipse in Aquarius', date: '20260808', time: '234600', end: '004600', desc: 'A cosmic turning point. Trust the process of release and renewal.' }
+    ];
+
+    let vevents = events.map(e => [
+      'BEGIN:VEVENT',
+      `DTSTART:${e.date}T${e.time}`,
+      `DTEND:${e.date}T${e.end}`,
+      `SUMMARY:✨ ${e.title}`,
+      `DESCRIPTION:${e.desc}\\n\\nFrom EVOLVE by Rocks2Rings — Sandra`,
+      'END:VEVENT'
+    ].join('\r\n')).join('\r\n');
+
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//EVOLVE by Rocks2Rings//Cosmic Updates//EN',
+      vevents,
+      'END:VCALENDAR'
+    ].join('\r\n');
+
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'evolve-cosmic-events-2026.ics';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    showToast('✨ All cosmic events downloaded to your calendar!');
+  }
+</script>
+
+</body>
+</html>

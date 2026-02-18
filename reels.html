@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EVOLVE Reels — Calm, Confidence & Ritual Inspiration</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2A9D8F;
+      --secondary: #FFFFFF;
+      --accent: #C8956C;
+      --font: 'DM Sans', 'Nunito', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font); line-height: 1.6; color: #333; background: #f9f7f4; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    a { color: var(--primary); text-decoration: none; }
+    nav { background: var(--primary); padding: 1rem; position: sticky; top: 0; z-index: 1000; }
+    nav .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    .nav-brand { color: white; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.5px; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+    nav a { color: white; margin-right: 1.5rem; font-size: 0.9rem; transition: opacity 0.3s; }
+    nav a:hover { opacity: 0.8; }
+    footer { background: #333; color: white; padding: 2rem; text-align: center; }
+    footer p { font-size: 0.9rem; opacity: 0.9; }
+
+    /* Featured Reel Banner */
+    .featured-reel-banner {
+      background: linear-gradient(135deg, #1a7a6e 0%, #2A9D8F 40%, var(--accent) 100%);
+      padding: 4rem 2rem;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-reel-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+      animation: shimmer 8s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(5%, 5%); }
+    }
+    .featured-reel-banner .content { position: relative; z-index: 1; }
+    .featured-reel-banner h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+    }
+    .featured-reel-banner .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-weight: 300;
+    }
+    .featured-reel-card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 500px;
+      margin: 0 auto;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .featured-reel-card .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+    .featured-reel-card .reel-preview {
+      width: 100%;
+      aspect-ratio: 9/12;
+      max-height: 300px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .featured-reel-card .reel-preview .play-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s;
+      z-index: 2;
+    }
+    .featured-reel-card .reel-preview:hover .play-icon {
+      transform: scale(1.1);
+    }
+    .featured-reel-card .reel-preview .play-icon::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 20px solid var(--primary);
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      margin-left: 4px;
+    }
+    .featured-reel-card .reel-preview .bg-text {
+      position: absolute;
+      font-size: 4rem;
+      opacity: 0.15;
+    }
+    .featured-reel-card h3 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+    .featured-reel-card p { font-size: 0.9rem; opacity: 0.85; }
+
+    /* Category Tabs */
+    .reels-category-tabs {
+      padding: 2rem 0 1rem;
+      position: sticky;
+      top: 60px;
+      z-index: 100;
+      background: #f9f7f4;
+    }
+    .tabs-wrapper {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .tabs-wrapper::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      flex-shrink: 0;
+      padding: 0.6rem 1.4rem;
+      border: 2px solid #e0dcd7;
+      border-radius: 30px;
+      background: white;
+      color: #666;
+      font-family: var(--font);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+    .tab-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .tab-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+    .tab-btn .tab-icon {
+      margin-right: 0.4rem;
+    }
+
+    /* Vertical Video Feed */
+    .vertical-video-feed {
+      padding: 1rem 0 3rem;
+    }
+    .feed-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .reel-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .reel-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    .reel-card .video-area {
+      aspect-ratio: 9/14;
+      background: linear-gradient(135deg, #e8e4df, #d4cfc8);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .reel-card .video-area .reel-emoji {
+      font-size: 4rem;
+      opacity: 0.3;
+      position: absolute;
+    }
+    .reel-card .video-area .play-btn {
+      width: 50px;
+      height: 50px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      transition: transform 0.3s;
+    }
+    .reel-card:hover .video-area .play-btn {
+      transform: scale(1.1);
+    }
+    .reel-card .video-area .play-btn::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 16px solid var(--primary);
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      margin-left: 3px;
+    }
+    .reel-card .video-area .category-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(4px);
+    }
+    .reel-card .video-area .duration {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    .reel-card .video-area .heart-count {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      backdrop-filter: blur(4px);
+    }
+    .reel-card .reel-info {
+      padding: 1rem 1.2rem;
+    }
+    .reel-card .reel-info h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: #333;
+      line-height: 1.4;
+    }
+    .reel-card .reel-info p {
+      font-size: 0.8rem;
+      color: #888;
+      margin-bottom: 0.75rem;
+    }
+    .reel-card .reel-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .reel-card .send-sandra {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 500;
+      transition: color 0.3s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font);
+    }
+    .reel-card .send-sandra:hover {
+      color: #b07d55;
+    }
+    .reel-card .reel-date {
+      font-size: 0.7rem;
+      color: #bbb;
+    }
+
+    /* Color variations for video areas */
+    .reel-card[data-category="calm"] .video-area {
+      background: linear-gradient(135deg, #d4eee8, #a8d8cf);
+    }
+    .reel-card[data-category="confidence"] .video-area {
+      background: linear-gradient(135deg, #f0d9c4, #e8c4a8);
+    }
+    .reel-card[data-category="rituals"] .video-area {
+      background: linear-gradient(135deg, #ddd5e8, #c4b8d8);
+    }
+    .reel-card[data-category="desert"] .video-area {
+      background: linear-gradient(135deg, #e8ddd0, #d8c8b0);
+    }
+    .reel-card[data-category="stones"] .video-area {
+      background: linear-gradient(135deg, #cce0e8, #a8c8d8);
+    }
+    .reel-card[data-category="love"] .video-area {
+      background: linear-gradient(135deg, #f0d4d8, #e8b8c0);
+    }
+
+    /* Reel Detail Overlay */
+    .reel-detail-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .reel-detail-overlay.active {
+      display: flex;
+    }
+    .overlay-content {
+      background: #111;
+      border-radius: 24px;
+      max-width: 400px;
+      width: 100%;
+      max-height: 90vh;
+      overflow: hidden;
+      position: relative;
+      animation: slideUp 0.4s ease;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .overlay-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .overlay-close:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    .overlay-video {
+      width: 100%;
+      aspect-ratio: 9/16;
+      background: linear-gradient(135deg, #1a3a35, #2A9D8F);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .overlay-video .big-play {
+      width: 70px;
+      height: 70px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .overlay-video .big-play:hover {
+      transform: scale(1.1);
+    }
+    .overlay-video .big-play::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 24px solid var(--primary);
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+      margin-left: 5px;
+    }
+    .overlay-video .overlay-emoji {
+      position: absolute;
+      font-size: 6rem;
+      opacity: 0.15;
+    }
+    .overlay-details {
+      padding: 1.5rem;
+      color: white;
+    }
+    .overlay-details .overlay-cat {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.2rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.75rem;
+    }
+    .overlay-details h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .overlay-details p {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .overlay-sandra-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: background 0.3s, transform 0.3s;
+      width: 100%;
+      justify-content: center;
+    }
+    .overlay-sandra-link:hover {
+      background: #b07d55;
+      transform: translateY(-1px);
+    }
+    .overlay-related {
+      padding: 0 1.5rem 1.5rem;
+      color: white;
+    }
+    .overlay-related h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #777;
+      margin-bottom: 0.75rem;
+    }
+    .overlay-related .related-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .overlay-related .related-links a {
+      background: rgba(255,255,255,0.1);
+      color: #ccc;
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      transition: background 0.3s;
+    }
+    .overlay-related .related-links a:hover {
+      background: rgba(255,255,255,0.2);
+      color: white;
+    }
+
+    /* Send to Sandra Modal */
+    .sandra-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .sandra-modal.active {
+      display: flex;
+    }
+    .sandra-modal-content {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 440px;
+      width: 100%;
+      animation: slideUp 0.3s ease;
+    }
+    .sandra-modal-content h3 {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 0.3rem;
+    }
+    .sandra-modal-content .modal-sub {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 1.5rem;
+    }
+    .sandra-modal-content textarea {
+      width: 100%;
+      min-height: 120px;
+      border: 2px solid #e8e4df;
+      border-radius: 12px;
+      padding: 1rem;
+      font-family: var(--font);
+      font-size: 0.9rem;
+      resize: vertical;
+      transition: border-color 0.3s;
+      outline: none;
+    }
+    .sandra-modal-content textarea:focus {
+      border-color: var(--primary);
+    }
+    .sandra-modal-content textarea::placeholder {
+      color: #bbb;
+    }
+    .sandra-modal-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .sandra-modal-actions button {
+      flex: 1;
+      padding: 0.75rem;
+      border-radius: 30px;
+      font-family: var(--font);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: none;
+    }
+    .btn-cancel {
+      background: #f0ece7;
+      color: #888;
+    }
+    .btn-cancel:hover {
+      background: #e4dfd8;
+    }
+    .btn-send {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-send:hover {
+      background: #238b7f;
+    }
+    .sandra-sent {
+      display: none;
+      text-align: center;
+      padding: 1rem 0;
+    }
+    .sandra-sent .check-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+      color: white;
+    }
+    .sandra-sent h3 {
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+    .sandra-sent p {
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    /* Cross-links section */
+    .explore-more {
+      padding: 3rem 0;
+      background: white;
+    }
+    .explore-more h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    .explore-more .explore-sub {
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .explore-card {
+      background: #f9f7f4;
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: block;
+      color: #333;
+    }
+    .explore-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    .explore-card .card-emoji {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .explore-card h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+    .explore-card p {
+      font-size: 0.8rem;
+      color: #999;
+    }
+
+    /* No comments notice */
+    .no-comments-notice {
+      text-align: center;
+      padding: 2rem 0;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .no-comments-notice .notice-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .no-comments-notice h3 {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 0.3rem;
+    }
+    .no-comments-notice p {
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav .container {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .nav-links {
+        justify-content: center;
+      }
+      nav a {
+        margin-right: 0.75rem;
+        font-size: 0.8rem;
+      }
+      .featured-reel-banner {
+        padding: 3rem 1rem;
+      }
+      .featured-reel-banner h1 {
+        font-size: 1.8rem;
+      }
+      .feed-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1rem;
+      }
+      .reels-category-tabs {
+        top: auto;
+        position: relative;
+      }
+    }
+    @media (max-width: 480px) {
+      .feed-grid {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+      }
+      .featured-reel-banner h1 {
+        font-size: 1.5rem;
+      }
+      .explore-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-brand">evolve-by-rocks2rings</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="weekly-wisdom.html">Weekly Wisdom</a>
+      <a href="confessions.html">Soul Whispers</a>
+      <a href="gentle-sos.html">Gentle SOS</a>
+      <a href="astrology.html">Astrology</a>
+      <a href="crystals.html">Crystal Lab</a>
+      <a href="reels.html">Reels</a>
+      <a href="shop.html">Shop</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Featured Reel Banner -->
+<section class="featured-reel-banner">
+  <div class="content">
+    <h1>✨ EVOLVE Reels</h1>
+    <p class="subtitle">Short moments of calm, confidence & ritual inspiration — curated by Sandra for your soul.</p>
+    <div class="featured-reel-card">
+      <span class="badge">⭐ Featured This Week</span>
+      <div class="reel-preview" onclick="openOverlay('featured')">
+        <span class="bg-text">🌙</span>
+        <div class="play-icon"></div>
+      </div>
+      <h3>Moonlight Amethyst Ritual for Inner Peace</h3>
+      <p>A 45-second evening ritual to release the weight of the day</p>
+    </div>
+  </div>
+</section>
+
+<!-- Category Tabs -->
+<section class="reels-category-tabs">
+  <div class="container">
+    <div class="tabs-wrapper">
+      <button class="tab-btn active" onclick="filterReels('all', this)"><span class="tab-icon">✦</span>All Reels</button>
+      <button class="tab-btn" onclick="filterReels('calm', this)"><span class="tab-icon">🧘</span>Calm</button>
+      <button class="tab-btn" onclick="filterReels('confidence', this)"><span class="tab-icon">💪</span>Confidence</button>
+      <button class="tab-btn" onclick="filterReels('rituals', this)"><span class="tab-icon">🕯️</span>Rituals</button>
+      <button class="tab-btn" onclick="filterReels('desert', this)"><span class="tab-icon">🏜️</span>Desert Moments</button>
+      <button class="tab-btn" onclick="filterReels('stones', this)"><span class="tab-icon">💎</span>Stone Stories</button>
+      <button class="tab-btn" onclick="filterReels('love', this)"><span class="tab-icon">💕</span>Customer Love</button>
+    </div>
+  </div>
+</section>
+
+<!-- Vertical Video Feed -->
+<section class="vertical-video-feed">
+  <div class="container">
+    <div class="feed-grid">
+
+      <!-- Reel 1 - Calm -->
+      <div class="reel-card" data-category="calm" onclick="openOverlay('calm1')">
+        <div class="video-area">
+          <span class="reel-emoji">🧘</span>
+          <div class="play-btn"></div>
+          <span class="category-tag">Calm</span>
+          <span class="duration">0:32</span>
+          <span class="heart-count">♡ 248</span>
+        </div>
+        <div class="reel-info">
+          <h3>3 Breaths to Reset Your Nervous System</h3>
+          <p>A gentle breathing exercise with rose quartz in hand</p>
+          <div class="reel-actions">
+            <button class="send-sandra" onclick="event.stopPropagation(); openSandraModal('3 Breaths to Reset')">✉ Send to Sandra</button>
+            <span class="reel-date">2 days ago</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reel 2 - Confidence -->
+      <div class="reel-card" data-category="confidence" onclick="openOverlay('conf1')">
+        <div class="video-area">
+          <span class="reel-emoji">🔥</span>
+          <div class="play-btn"></div>
+          <span class="category-tag">Confidence</span>
+          <span class="duration">0:45</span>
+          <span class="heart-count">♡ 412</span>
+        </div>
+        <div class="reel-info">
+          <h3>Mirror Affirmation: "I Am Enough"</h3>
+          <p>Wear your tiger's eye and repeat after Sandra</p>
+          <div class="reel-actions">
+            <button class="send-sandra" onclick="event.stopPropagation(); openSandraModal('Mirror Affirmation')">✉ Send to Sandra</button>
+            <span class="reel-date">4 days ago</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reel 3 - Rituals -->
+      <div class="reel-card" data-category="rituals" onclick="openOverlay('rit1')">
+        <div class="video-area">
+          <span class="reel-emoji">🕯️</span>
+          <div class="play-btn"></div>
+          <span class="category-tag">Rituals</span>
+          <span class="duration">1:02</span>
+          <span class="heart-count">♡ 367</span>
+        </div>
+        <div class="reel-info">
+          <h3>New Moon Intention Setting with Labradorite</h3>
+          <p>A step-by-step ritual for manifesting your next chapter</p>
+          <div class="reel-actions">
+            <button class="send-sandra" onclick="event.stopPropagation(); openSandraModal('New Moon Ritual')">✉ Send to Sandra</button>
+            <span class="reel-date">5 days ago</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reel 4 - Desert -->
+      <div class="reel-card" data-category="desert" onclick="openOverlay('des1')">
+        <div class="video-area">
+          <span class="reel-emoji">🏜️</span>
+          <div class="play-btn"></div>
+          <span class="category-tag">Desert</span>
+          <span class="duration">0:28</span>
+          <span class="heart-count">♡ 189</span>
+        </div>
+        <div class="reel-info">
+          <h3>Sunrise Over Red Rock — A Moment of Stillness</h3>
+          <p>Sandra's morning walk through the Arizona desert</p>
+          <div class="reel-actions">
+            <button class="send-sandra" onclick="event.stopPropagation(); openSandraModal('Desert Sunrise')">✉ Send to Sandra</button>
+            <span class="reel-date">1 week ago</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reel 5 - Stones -->
+      <div class="reel-card" data-category="stones" onclick="openOverlay('stone1')">
+        <div class="video-area">
+          <span class="reel-emoji">💎</span>
+          <div class="play-btn"></div>
+          <span class="category-tag">Stone Stories</span>
+          <span class="duration">0:55</span>
+          <span class="heart-count">♡ 523</span>
+        </div>
+        <div class="reel-info">
+          <h3>Why Amethyst Chose You (Not the Other Way)</h3>
+          <p>The story behind the stone that finds its person</p>
+          <div class="reel-actions">
+            <button class="send-sandra" onclick="event.stopPropagation(); openSandraModal('Amethyst Story')">✉ Send to Sandra</button>
+            <span class="reel-date">1 week ago</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reel 6 - Customer Love -->
+      <div class="reel-card" data-category="love" onclick="openOverlay('love1')">
+        <div class="video-area">
+          <span class="reel-emoji">💕</span>
+          <div class="play-btn"></div>
+          <span class="category-tag">Customer Love</span>
+          <span class="duration">0:38</span>
+          <span class="heart-count">♡ 301</span>
+        </div>
+        <div class="reel-info">
+          <h3>"This Bracelet Got Me Through Chemo"</h3>
+          <p>Maria's story of strength, faith, and her moonstone piece</p>
+          <div class="reel-actions">
+            <button class="send-sandra" onclick="event.stopPropagation(); openSandraModal('Maria\'s Story')">✉ Send to Sandra</button>
+            <span class="reel-date">1 week ago</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reel 7 - Calm -->
+      <div class="reel-card" data-category="calm" onclick="openOverlay('calm2')">
+        <div class="video-area">
+          <span class="reel-emoji">🌊</span>
+          <div class="play-btn"></div>
+          <span class="category-tag">Calm</span>
+          <span class="duration">0:40</span>
+          <span class="heart-count">♡ 176</span>
+        </div>
+        <div class="reel-info">
+          <h3>Ocean Sound Bath with Aquamarine</h3>
+          <p>Close your eyes and let the waves carry your worries</p>
+          <div class="reel-actions">
+            <button class="send-sandra" onclick="event.stopPropagation(); openSandraModal('Ocean Sound Bath')">✉ Send to Sandra</button>
+            <span class="reel-date">2 weeks ago</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reel 8 - Confidence -->
+      <div class="reel-card" data-category="confidence" onclick="openOverlay('conf2')">
+        <div class="video-area">
+          <span class="reel-emoji">👑</span>
+          <div class="play-btn"></div>
+          <span class="category-tag">Confidence</span>
+          <span class="duration">0:50</span>
+          <span class="heart-count">♡ 289</span>
+        </div>
+        <div class="reel-info">
+          <h3>Your Power Pose: Carnelian Edition</h3>
+          <p>Stand tall, hold your stone, and own the room</p>
+          <div class="reel-actions">
+            <button class="send-sandra" onclick="event.stopPropagation(); openSandraModal('Power Pose')">✉ Send to Sandra</button>
+            <span class="reel-date">2 weeks ago</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reel 9 - Rituals -->
+      <div class="reel-card" data-category="rituals" onclick="openOverlay('rit2')">
+        <div class="video-area">
+          <span class="reel-emoji">🌿</span>
+          <div class="play-btn"></div>
+          <span class="category-tag">Rituals</span>
+          <span class="duration">1:15</span>
+          <span class="heart-count">♡ 445</span>
+        </div>
+        <div class="reel-info">
+          <h3>Sunday Reset: Sage, Stones & Self-Love</h3>
+          <p>Sandra's weekly cleansing ritual you can do at home</p>
+          <div class="reel-actions">
+            <button class="send-sandra" onclick="event.stopPropagation(); openSandraModal('Sunday Reset')">✉ Send to Sandra</button>
+            <span class="reel-date">2 weeks ago</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reel 10 - Desert -->
+      <div class="reel-card" data-category="desert" onclick="openOverlay('des2')">
+        <div class="video-area">
+          <span class="reel-emoji">🌵</span>
+          <div class="play-btn"></div>
+          <span class="category-tag">Desert</span>
+          <span class="duration">0:22</span>
+          <span class="heart-count">♡ 134</span>
+        </div>
+        <div class="reel-info">
+          <h3>Finding Jasper in the Wild</h3>
+          <p>A desert treasure hunt — nature's jewelry box</p>
+          <div class="reel-actions">
+            <button class="send-sandra" onclick="event.stopPropagation(); openSandraModal('Finding Jasper')">✉ Send to Sandra</button>
+            <span class="reel-date">3 weeks ago</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reel 11 - Stones -->
+      <div class="reel-card" data-category="stones" onclick="openOverlay('stone2')">
+        <div class="video-area">
+          <span class="reel-emoji">✨</span>
+          <div class="play-btn"></div>
+          <span class="category-tag">Stone Stories</span>
+          <span class="duration">0:48</span>
+          <span class="heart-count">♡ 398</span>
+        </div>
+        <div class="reel-info">
+          <h3>Citrine: The Stone That Holds Sunshine</h3>
+          <p>Why this golden crystal is Sandra's go-to for dark days</p>
+          <div class="reel-actions">
+            <button class="send-sandra" onclick="event.stopPropagation(); openSandraModal('Citrine Story')">✉ Send to Sandra</button>
+            <span class="reel-date">3 weeks ago</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reel 12 - Customer Love -->
+      <div class="reel-card" data-category="love" onclick="openOverlay('love2')">
+        <div class="video-area">
+          <span class="reel-emoji">🥰</span>
+          <div class="play-btn"></div>
+          <span class="category-tag">Customer Love</span>
+          <span class="duration">0:42</span>
+          <span class="heart-count">♡ 267</span>
+        </div>
+        <div class="reel-info">
+          <h3>"I Bought One for My Daughter Too"</h3>
+          <p>A mother-daughter healing journey through matching stones</p>
+          <div class="reel-actions">
+            <button class="send-sandra" onclick="event.stopPropagation(); openSandraModal('Mother-Daughter Story')">✉ Send to Sandra</button>
+            <span class="reel-date">3 weeks ago</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- No Comments Notice -->
+    <div class="no-comments-notice">
+      <div class="notice-icon">🤫</div>
+      <h3>This is a comment-free space</h3>
+      <p>No public comments here — just you, the reel, and a private line to Sandra if something moves you. Your peace matters.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Explore More -->
+<section class="explore-more">
+  <div class="container">
+    <h2>Keep Exploring</h2>
+    <p class="explore-sub">These reels connect to everything we do at EVOLVE</p>
+    <div class="explore-grid">
+      <a href="crystals.html" class="explore-card">
+        <div class="card-emoji">💎</div>
+        <h4>Crystal Lab</h4>
+        <p>Learn about the stones in our reels</p>
+      </a>
+      <a href="weekly-wisdom.html" class="explore-card">
+        <div class="card-emoji">📖</div>
+        <h4>Weekly Wisdom</h4>
+        <p>Deeper reflections from Sandra</p>
+      </a>
+      <a href="confessions.html" class="explore-card">
+        <div class="card-emoji">🤍</div>
+        <h4>Soul Whispers</h4>
+        <p>Share what's on your heart</p>
+      </a>
+      <a href="shop.html" class="explore-card">
+        <div class="card-emoji">🛍️</div>
+        <h4>Shop</h4>
+        <p>Find the pieces from our reels</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Reel Detail Overlay -->
+<div class="reel-detail-overlay" id="reelOverlay">
+  <div class="overlay-content">
+    <button class="overlay-close" onclick="closeOverlay()">✕</button>
+    <div class="overlay-video">
+      <span class="overlay-emoji" id="overlayEmoji">🌙</span>
+      <div class="big-play"></div>
+    </div>
+    <div class="overlay-details">
+      <span class="overlay-cat" id="overlayCat">Rituals</span>
+      <h2 id="overlayTitle">Moonlight Amethyst Ritual for Inner Peace</h2>
+      <p id="overlayDesc">A 45-second evening ritual to release the weight of the day. Hold your amethyst under the moonlight, breathe deeply, and let go of what no longer serves you.</p>
+      <button class="overlay-sandra-link" onclick="closeOverlay(); openSandraModal(document.getElementById('overlayTitle').textContent)">
+        ✉ Send a Private Message to Sandra
+      </button>
+    </div>
+    <div class="overlay-related">
+      <h4>Related Pages</h4>
+      <div class="related-links">
+        <a href="crystals.html">Crystal Lab</a>
+        <a href="astrology.html">Astrology</a>
+        <a href="gentle-sos.html">Gentle SOS</a>
+        <a href="shop.html">Shop</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Send to Sandra Modal -->
+<div class="sandra-modal" id="sandraModal">
+  <div class="sandra-modal-content">
+    <div id="sandraForm">
+      <h3>✉ Send a Message to Sandra</h3>
+      <p class="modal-sub">About: <strong id="sandraReelTitle"></strong></p>
+      <textarea placeholder="What moved you about this reel? Sandra reads every message personally..." id="sandraMessage"></textarea>
+      <div class="sandra-modal-actions">
+        <button class="btn-cancel" onclick="closeSandraModal()">Cancel</button>
+        <button class="btn-send" onclick="sendToSandra()">Send Privately</button>
+      </div>
+    </div>
+    <div class="sandra-sent" id="sandraSent">
+      <div class="check-icon">✓</div>
+      <h3>Message Sent 💛</h3>
+      <p>Sandra will read your message with care. You are seen.</p>
+      <br>
+      <button class="btn-cancel" onclick="closeSandraModal()" style="border:none; padding:0.6rem 2rem; border-radius:30px; cursor:pointer; font-family:var(--font);">Close</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>© 2026 EVOLVE by Rocks2Rings — Sandra. You are not alone.</p>
+  </div>
+</footer>
+
+<script>
+  // Reel data for overlay
+  const reelData = {
+    featured: { emoji: '🌙', cat: 'Rituals', title: 'Moonlight Amethyst Ritual for Inner Peace', desc: 'A 45-second evening ritual to release the weight of the day. Hold your amethyst under the moonlight, breathe deeply, and let go of what no longer serves you.' },
+    calm1: { emoji: '🧘', cat: 'Calm', title: '3 Breaths to Reset Your Nervous System', desc: 'Hold your rose quartz in your left hand, close your eyes, and follow along. Three breaths is all it takes to come back to yourself.' },
+    conf1: { emoji: '🔥', cat: 'Confidence', title: 'Mirror Affirmation: "I Am Enough"', desc: 'Stand in front of your mirror with your tiger\'s eye. Look into your own eyes and repeat: I am enough. I have always been enough.' },
+    rit1: { emoji: '🕯️', cat: 'Rituals', title: 'New Moon Intention Setting with Labradorite', desc: 'Every new moon is a fresh start. Write your intention, hold your labradorite, and speak your desire into the universe.' },
+    des1: { emoji: '🏜️', cat: 'Desert Moments', title: 'Sunrise Over Red Rock — A Moment of Stillness', desc: 'Sandra\'s morning walk through the Arizona desert. No words needed — just the sound of wind and the warmth of first light.' },
+    stone1: { emoji: '💎', cat: 'Stone Stories', title: 'Why Amethyst Chose You (Not the Other Way)', desc: 'Have you ever felt drawn to a crystal? That\'s not coincidence. Amethyst has a way of finding the people who need its calm, protective energy most.' },
+    love1: { emoji: '💕', cat: 'Customer Love', title: '"This Bracelet Got Me Through Chemo"', desc: 'Maria shares her story of wearing her moonstone bracelet through every treatment. A reminder that strength comes in many forms.' },
+    calm2: { emoji: '🌊', cat: 'Calm', title: 'Ocean Sound Bath with Aquamarine', desc: 'Close your eyes and let the waves carry your worries. Aquamarine connects you to the healing energy of water.' },
+    conf2: { emoji: '👑', cat: 'Confidence', title: 'Your Power Pose: Carnelian Edition', desc: 'Stand tall, feet grounded, carnelian in your pocket. Feel the fire in your belly. You were made for this moment.' },
+    rit2: { emoji: '🌿', cat: 'Rituals', title: 'Sunday Reset: Sage, Stones & Self-Love', desc: 'Sandra\'s weekly cleansing ritual: sage your space, charge your stones, and set a loving intention for the week ahead.' },
+    des2: { emoji: '🌵', cat: 'Desert Moments', title: 'Finding Jasper in the Wild', desc: 'A desert treasure hunt — nature\'s jewelry box. Watch Sandra discover raw jasper among the red rocks.' },
+    stone2: { emoji: '✨', cat: 'Stone Stories', title: 'Citrine: The Stone That Holds Sunshine', desc: 'When the world feels heavy, citrine brings warmth. Sandra shares why this golden crystal is her go-to for dark days.' },
+    love2: { emoji: '🥰', cat: 'Customer Love', title: '"I Bought One for My Daughter Too"', desc: 'A mother-daughter healing journey through matching stones. Because some bonds are strengthened by shared intention.' }
+  };
+
+  // Filter reels by category
+  function filterReels(category, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.reel-card').forEach(card => {
+      if (category === 'all' || card.dataset.category === category) {
+        card.style.display = 'block';
+        card.style.animation = 'fadeIn 0.4s ease';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Open reel overlay
+  function openOverlay(id) {
+    const data = reelData[id];
+    if (!data) return;
+    document.getElementById('overlayEmoji').textContent = data.emoji;
+    document.getElementById('overlayCat').textContent = data.cat;
+    document.getElementById('overlayTitle').textContent = data.title;
+    document.getElementById('overlayDesc').textContent = data.desc;
+    document.getElementById('reelOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeOverlay() {
+    document.getElementById('reelOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Close overlay on background click
+  document.getElementById('reelOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeOverlay();
+  });
+
+  // Sandra modal
+  function openSandraModal(reelTitle) {
+    document.getElementById('sandraReelTitle').textContent = reelTitle;
+    document.getElementById('sandraMessage').value = '';
+    document.getElementById('sandraForm').style.display = 'block';
+    document.getElementById('sandraSent').style.display = 'none';
+    document.getElementById('sandraModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSandraModal() {
+    document.getElementById('sandraModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function sendToSandra() {
+    const msg = document.getElementById('sandraMessage').value.trim();
+    if (!msg) {
+      document.getElementById('sandraMessage').style.borderColor = '#e74c3c';
+      document.getElementById('sandraMessage').placeholder = 'Please write a message before sending...';
+      return;
+    }
+    document.getElementById('sandraForm').style.display = 'none';
+    document.getElementById('sandraSent').style.display = 'block';
+  }
+
+  // Close Sandra modal on background click
+  document.getElementById('sandraModal').addEventListener('click', function(e) {
+    if (e.target === this) closeSandraModal();
+  });
+
+  // Escape key closes modals
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeOverlay();
+      closeSandraModal();
+    }
+  });
+
+  // Add fadeIn animation
+  const style = document.createElement('style');
+  style.textContent = '@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }';
+  document.head.appendChild(style);
+</script>
+
+</body>
+</html>
